@@ -1,0 +1,905 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Today I Learned_220919 - 테르의 개발 일기장</title>
+<meta name="description" content="HTTP 인프런 HTTP 강의 수강">
+
+
+  <meta name="author" content="HeeJung Kang">
+  
+  <meta property="article:author" content="HeeJung Kang">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="테르의 개발 일기장">
+<meta property="og:title" content="Today I Learned_220919">
+<meta property="og:url" content="http://localhost:4000/til/TIL_220919/">
+
+
+  <meta property="og:description" content="HTTP 인프런 HTTP 강의 수강">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-09-19T20:57:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/TIL_220919/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Teirdarn Linkaden",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="테르의 개발 일기장 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          테르의 개발 일기장
+          <span class="site-subtitle">Junior Web Developer</span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/img/profile.png" alt="HeeJung Kang" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">HeeJung Kang</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>하루하루 조금씩 열심히.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:tentasys@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:tentasys@gmail.com">
+            <meta itemprop="email" content="tentasys@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Today I Learned_220919">
+    <meta itemprop="description" content="HTTP인프런 HTTP 강의 수강">
+    <meta itemprop="datePublished" content="2022-09-19T20:57:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Today I Learned_220919
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="http">HTTP</h1>
+<p><a href="https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard">인프런 HTTP 강의 수강</a></p>
+
+<h2 id="http-상태코드">HTTP 상태코드</h2>
+<p>클라이언트가 보낸 요청의 처리 상태를 서버의 응답으로 알려주는 기능</p>
+
+<p>요청이 잘 처리가 되었는지? 문제가 되었는지? - request가 아니라 response로 알려주는 기능</p>
+
+<p>현존하는 상태코드가 아니라 미래에 새로운 상태코드가 생겨서 모르는 상태코드를 서버가 반환한다면?
+<br />
+-&gt; 클라이언트는 상위 상태코드로 해석해서 처리. 미래에 새로운 상태 코드가 추가되어도 클라이언트를 변경하지 않아도 됨</p>
+
+<p>ex) 299 - 없는 상태코드이지만, 2xx이므로 Successful 처리를 한다.</p>
+
+<p><br />
+1xx(Informational) : 요청이 수신되어 처리중 -&gt; 잘 사용되지 않음</p>
+
+<h3 id="2xx---성공">2xx - 성공</h3>
+<p>Successful, 요청 정상 처리</p>
+
+<p>클라이언트의 요청을 성공적으로 처리했다</p>
+
+<h4 id="200-ok">200 OK</h4>
+<p>클라이언트의 요청을 성공적으로 처리. 가장 많이 보는 케이스이다.</p>
+
+<p>요청</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /members/100 HTTP/1.1
+Host: localhost:8080
+</code></pre></div></div>
+
+<p>응답</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 34
+{
+"username": "young",
+"age": 20
+}
+</code></pre></div></div>
+
+<h4 id="201-created">201 Created</h4>
+<p>클라이언트가 요청을 한 것 가지고 서버에 리소스 생성. 주로 POST로 등록했을 때 준다</p>
+
+<p>요청</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /members HTTP/1.1
+Content-Type: application/json
+{
+"username": "young",
+"age": 20
+}
+</code></pre></div></div>
+<p>요청에 생성할 리소스를 담아서 보냄 (POST -&gt; 서버에서 자원을 생성)</p>
+
+<p>응답</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 34
+Location: /members/100
+{
+"username": "young",
+"age": 20
+}
+</code></pre></div></div>
+<p>생성된 리소스는 응답의 Location 헤더 필드로 식별</p>
+
+<h4 id="202-accepted">202 Accepted</h4>
+<p>요청이 접수되었으나 처리가 완료되지 않음</p>
+
+<p>배치 처리 같은 곳에서 사용</p>
+
+<p>예) 요청 접수 후 1시간 뒤에 배치 프로세스가 요청을 처리함</p>
+
+<p>잘 사용하지는 않음</p>
+
+<h4 id="204-no-content">204 No Content</h4>
+<p>서버가 요청을 성공적으로 수행했지만, 응답 페이로드 본문에 보낼 데이터가 없음</p>
+
+<p>예) 웹 문서 편집기에서 save 버튼. 데이터가 POST로 서버에 넘어가지만 응답을 내려줄 게 없다
+<br />
+save 버튼의 결과로 아무 내용이 없어도 되며, 버튼을 눌러도 같은 화면을 유지해야 하는 경우 사용
+<br />
+결과 내용이 없어도 204 메시지만으로 성공을 인식할 수 있다.</p>
+
+<h3 id="3xx---리다이렉션">3xx - 리다이렉션</h3>
+<p>Redirection, 요청을 완료하려면 추가 행동이 필요. 주로 리다이렉트로 사용</p>
+
+<p>요청을 완료하기 위해 유저 에이전트(클라이언트 프로그램, 주로 웹 브라우저)의 추가 조치 필요</p>
+
+<p>웹 브라우저는 3xx 응답 결과에 Location 헤더가 있으면 Location 위치로 자동 이동한다. (사용자 입장에서는 빨라서 사용자는 인식을 잘 하지 못한다)</p>
+
+<p><strong>Status 코드</strong></p>
+<ul>
+  <li>300 Multiple Choices (잘 사용하지 않음)</li>
+  <li>301 Moved Permanently</li>
+  <li>302 Found</li>
+  <li>303 See Other</li>
+  <li>304 Not Modified</li>
+  <li>307 Temporary Redirect</li>
+  <li>308 Permanent Redirect</li>
+</ul>
+
+<p><strong>리다이렉션의 종류</strong></p>
+<ul>
+  <li>영구 리다이렉션 : 특정 리소스의 URI가 영구적으로 이동
+    <ul>
+      <li>주소가 아예 바뀜 (구 주소 -&gt; 신 주소)</li>
+    </ul>
+  </li>
+  <li>일시 리다이렉션 : 일시적인 변경
+    <ul>
+      <li>주문 완료 후 주문 내역 화면으로 이동</li>
+      <li>PRG : POST/Redirect/GET</li>
+    </ul>
+  </li>
+  <li>특수 리다이렉션 : 결과 대신 캐시를 사용</li>
+</ul>
+
+<h4 id="영구-리다이렉션">영구 리다이렉션</h4>
+<p>301, 308</p>
+
+<ul>
+  <li>리소스의 URI가 영구적으로 이동</li>
+  <li>원래의 URL을 더 이상 사용하면 안 된다</li>
+  <li>검색 엔진들도 변경을 인지할 수 있다 (A주소를 불렀는데 B주소가 나온다? B주소로 인지를 한다)</li>
+</ul>
+
+<p>301과 308 모두 기능은 비슷하다 -&gt; 경로가 완전히 바뀌었다는 것을 알려줌</p>
+<ul>
+  <li>301 Moved Permanently
+    <ul>
+      <li>리다이렉트 시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있다 (거의 이렇게 된다)</li>
+      <li>원래는 요청 메서드로 유지하는 것이 스펙이었지만, 대부분 위와 같이 구현되어 있기 때문에 위와 같은 스펙으로 변경</li>
+    </ul>
+  </li>
+  <li>308 Permanent Redirect
+    <ul>
+      <li>301과 기능은 같다</li>
+      <li>리다이렉트 시 요청 메서드와 본문이 유지된다</li>
+    </ul>
+  </li>
+</ul>
+
+<p>사실상 URL이 변한다면 파라미터도 변하는 경우가 많으므로.. 일반적인 경우에는 301을 더 잘 활용한다.</p>
+
+<h4 id="일시적인-리다이렉션">일시적인 리다이렉션</h4>
+<p>302, 307, 303</p>
+
+<ul>
+  <li>리소스의 URI가 일시적으로 변경(나중에 바뀌지 않을 수 있다)
+    <ul>
+      <li>처음엔 A 들어왔다가 나중에 B 들어갈 수도 있음</li>
+    </ul>
+  </li>
+  <li>영구적으로 변경되는 것이 아니기에, 검색 엔진 등에서 URL을 변경하면 안 된다.</li>
+  <li>아래 3개는 기능 자체는 같다</li>
+  <li>302 Found
+    <ul>
+      <li>리다이렉트 시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있다 (301이랑 같음!!)</li>
+      <li>메서드라 변할 수 있고, 본문이 제거될 수 있지만 그러지 않을 수도 있다.</li>
+      <li>301과 같이 원래 의도는 메소드를 유지하는 것이었으나.. 어느새 위와 같은 스펙으로 변경되었다</li>
+    </ul>
+  </li>
+  <li>307 Temporary Redirect
+    <ul>
+      <li>302와 기능은 같음</li>
+      <li>리다이렉트 시 요청 메서드와 본문 <strong>유지</strong></li>
+      <li>요청 메서드를 변경하면 안 된다</li>
+    </ul>
+  </li>
+  <li>303 See Other
+    <ul>
+      <li>302와 기능은 같음</li>
+      <li>리다이렉트 시 요청 메서드가 <strong>GET으로 변경</strong></li>
+      <li>무조건 GET으로 변경(명확하게 명시)</li>
+    </ul>
+  </li>
+</ul>
+
+<p>실무에서는 대부분 302를 많이 사용한다.</p>
+
+<h4 id="prg--postredirectget">PRG : Post/Redirect/Get</h4>
+<p><a href="https://en.wikipedia.org/wiki/Post/Redirect/Get">PRG 패턴</a></p>
+
+<p>일시적인 리다이렉션을 사용하는 예시</p>
+<ul>
+  <li>POST로 주문 후에 웹 브라우저를 새로고침하면? -&gt; 다시 요청이 갈 수 있음 -&gt; 중복 주문이 될 수 있다.</li>
+  <li>아래와 같이 클라이언트 차원에서 방어가 가능 (물론 서버쪽에서도 막아야 한다)</li>
+  <li>POST로 주문 후에 주문 결과 화면을 GET메서드로 리다이렉트</li>
+  <li>새로고침해도 결과 화면을 GET으로 조회</li>
+  <li>중복 주문 대신에 결과 화면만 GET으로 다시 요청</li>
+  <li>PRG 이후 리다이렉트
+    <ul>
+      <li>URL이 이미 POST -&gt; GET으로 리다이렉트됨</li>
+      <li>새로고침해도 GET으로 결과 화면만 조회</li>
+    </ul>
+  </li>
+  <li>이렇게 하면 사용성도 좋고, 서버 입장에서도 오류가 줄어든다.</li>
+</ul>
+
+<h4 id="정리">정리</h4>
+<p>처음 302의 의도는 HTTP메서드를 유지하는 것이었지만, 웹 브라우저들이 대부분 GET로 바꾸어버렸다</p>
+
+<p>302의 스펙 자체가 모호해지자, 명확한 스펙인 307, 303이 등장했다.</p>
+
+<p>302 : GET으로 변할 수 있음</p>
+
+<p>307 : 메서드가 변하면 안 됨</p>
+
+<p>303 : 메서드가 GET으로 변경</p>
+
+<p>명확한 스펙인 307, 303을 권장하지만 현실적으로 많은 애플리케이션이 302 사용중</p>
+
+<p>자동 리다이렉션 시 GET으로 변해도 되면 302를 사용해도 큰 문제가 없다.</p>
+
+<h4 id="기타-리다이렉션">기타 리다이렉션</h4>
+<p>300, 304</p>
+<ul>
+  <li>300 Multiple Choices : 안 쓴다.</li>
+  <li>304 Not Modified : 정말 많이 쓴다
+    <ul>
+      <li>캐시, 조건부 요청 관련</li>
+      <li>캐시를 목적으로 사용</li>
+      <li>클라이언트에게 리소스가 수정되지 않았다는 것을 알려준다</li>
+      <li>클라이언트 : 캐시가 만료된 것 같은데 다시 줘</li>
+      <li>서버 : 캐시 써도 되니까 써</li>
+      <li>캐시로 리다이렉트한다</li>
+      <li>로컬 캐시를 사용해야 하므로 응답에 메시지 바디를 포함하면 안 된다</li>
+      <li>조건부 GET, HEAD 요청시 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4xx---클라이언트-오류">4xx - 클라이언트 오류</h3>
+<p>Client Error, <strong>클라이언트 오류</strong>, 잘못된 문법 등으로 서버가 요청을 수행할 수 없음</p>
+
+<p>클라이언트가 이미 잘못된 요청, 데이터를 보내고 있기 때문에, 재시도 할 경우 실패할 수 밖에 없다. -&gt; 400대 오류와 500대 오류의 큰 차이점!</p>
+
+<ul>
+  <li>400 Bad Request : 클라이언트가 잘못된 요청을 해서 서버가 요청을 처리할 수 없음
+    <ul>
+      <li>요청 구문, 메시지 등등 오류</li>
+      <li>클라이언트는 요청 내용을 다시 검토하고 보내야 함</li>
+      <li>요청 파라미터가 잘못되거나 API 스펙이 맞지 않을 때, 숫자를 보내야 하는데 문자를 보냈을 때</li>
+      <li>서버 개발자는 이것을 잘 판단해야 한다! (500 오류로 판단하지 않게끔 잘 막아야 함)</li>
+    </ul>
+  </li>
+  <li>401 Unauthorized : 클라이언트가 해당 리소스에 대한 인증이 필요함
+    <ul>
+      <li>인증되지 않음</li>
+      <li>오류 발생 시 응답에 WWW-Authenticate 헤더와 함께 인증 방법을 설명</li>
+      <li>인증(Authentication) : 본인이 누구인지 확인하는 것, 로그인</li>
+      <li>인가(Authorization) : 권한부여. 특정 리소스에 접근할 수 있는 권한. 인증이 선행되어야 인가가 있을 수 있다.</li>
+      <li>오류 메시지는 인가에 관한 내용이지만 오류는 인증의 문제</li>
+    </ul>
+  </li>
+  <li>403 Forbidden : 서버가 요청을 이해했지만 승인을 거부함
+    <ul>
+      <li>주로 접근 권한이 불충분한 경우</li>
+    </ul>
+  </li>
+  <li>404 Not Found : 요청 리소스를 찾을 수 없음
+    <ul>
+      <li>서버 입장에서는 이런 리소스가 없는데 찾으려고 한다</li>
+      <li>요청 리소스가 서버에 없거나 클라이언트가 권한이 부족한 리소스에 접근할 때, 해당 리소스를 숨기고 싶을 때 사용(403 조차 내기 싫다)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5xx---서버-오류">5xx - 서버 오류</h3>
+<p>Server Error, <strong>서버 오류</strong>, 서버가 정상 요청을 처리하지 못함 (데이터베이스 중단 등)</p>
+
+<p>서버에 문제가 있기 때문에 재시도 하면 서버가 복구되어서 성공할 수 있음</p>
+
+<p>비즈니스 상 오류랑 서버 오류를 잘 구분해야 한다! 비즈니스 오류가 아니라 진짜 서버 오류일 때 500 에러를 내야 한다.</p>
+
+<p>나머지는 400 혹은 200으로 해결하도록 하자.</p>
+
+<ul>
+  <li>500 Internal Server Error
+    <ul>
+      <li>서버 문제로 오류 발생</li>
+      <li>애매하면 500 오류</li>
+    </ul>
+  </li>
+  <li>503 Service Unavailable
+    <ul>
+      <li>서버가 일시적인 과부하 또는 예정된 작업으로 잠시 요청을 처리할 수 없음</li>
+      <li>Retry-After 헤더 필드로 얼마뒤에 복구되는지 보낼 수 있음</li>
+      <li>근데 언제 복구될지 아무로 모르므로..보통 500을 자주 보내준다.</li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-09-19T20:57:00+09:00">September 19, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Today+I+Learned_220919%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_220919%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_220919%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_220919%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/TIL_220915/" class="pagination--pager" title="Today I Learned_220915
+">이전</a>
+    
+    
+      <a href="/til/TIL_221114/" class="pagination--pager" title="Today I Learned_221114
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230119/" rel="permalink">Today I Learned_230119
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230116/" rel="permalink">Today I Learned_230116
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221226/" rel="permalink">Today I Learned_221226
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221219/" rel="permalink">Today I Learned_221219
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Teirdarn Linkaden. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,749 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Today I Learned_220726 - 테르의 개발 일기장</title>
+<meta name="description" content="Spring Framework 인프런 스프링 강의 수강">
+
+
+  <meta name="author" content="HeeJung Kang">
+  
+  <meta property="article:author" content="HeeJung Kang">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="테르의 개발 일기장">
+<meta property="og:title" content="Today I Learned_220726">
+<meta property="og:url" content="http://localhost:4000/til/TIL_220726/">
+
+
+  <meta property="og:description" content="Spring Framework 인프런 스프링 강의 수강">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-07-26T17:16:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/TIL_220726/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Teirdarn Linkaden",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="테르의 개발 일기장 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          테르의 개발 일기장
+          <span class="site-subtitle">Junior Web Developer</span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/img/profile.png" alt="HeeJung Kang" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">HeeJung Kang</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>하루하루 조금씩 열심히.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:tentasys@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:tentasys@gmail.com">
+            <meta itemprop="email" content="tentasys@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Today I Learned_220726">
+    <meta itemprop="description" content="Spring Framework인프런 스프링 강의 수강">
+    <meta itemprop="datePublished" content="2022-07-26T17:16:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Today I Learned_220726
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="spring-framework">Spring Framework</h1>
+<p><a href="https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-%ED%95%B5%EC%8B%AC-%EC%9B%90%EB%A6%AC-%EA%B8%B0%EB%B3%B8%ED%8E%B8/dashboard">인프런 스프링 강의 수강</a></p>
+
+<h2 id="dependency-injection의존관계-주입">Dependency Injection(의존관계 주입)</h2>
+<p>생성자 주입, 수정자 주입, 필드 주입, 메소드 주입 등 여러 방법이 있지만, 가급적이면 <strong>생성자 주입</strong>을 선택하자.</p>
+
+<p><strong>생성자 주입을 선택해야 하는 이유</strong></p>
+<ol>
+  <li>
+    <p>불변</p>
+
+    <p>생성자 주입은 객체를 생성할 때 딱 1번만 호출되어 이후에 호출되는 일이 없음 -&gt; 불변하게 설계 가능</p>
+
+    <p>수정자 주입의 경우 set 메소드를 열어놓아야 함 -&gt; 누군가가 수정할 가능성이 있음</p>
+
+    <p>대부분의 의존관계 주입은 한 번 일어나면 애플리케이션 종료시점까지 의존관계를 변경할 일이 없다.</p>
+  </li>
+  <li>
+    <p>누락</p>
+
+    <p>생성자 주입을 사용하면 주입 데이터를 누락했을 때 컴파일 오류가 발생</p>
+
+    <p>수정자 주입을 사용하면 컴파일 단계에서 오류를 잡기 힘들다.</p>
+  </li>
+  <li>
+    <p>final</p>
+
+    <p>생성자 주입을 사용하면 필드에 final 키워드 사용 가능 -&gt; 값이 설정되지 않는 오류를 컴파일 단계에서 막아준다.</p>
+
+    <p>생성자 주입 외에 다른 방법은 생성자 이후에 호출되므로 final 키워드를 사용할 수 없음.</p>
+  </li>
+</ol>
+
+<p>생성자 주입을 선택하는 이유는 프레임워크에 의존하지 않고 순수한 자바 언어의 특징을 잘 살리는 방법이다.</p>
+
+<p>기본적으로 생성자 주입을 사용하고 옵션으로 수정자 주입을 사용하자 -&gt; 그냥 웬만하면 생성자 주입 사용하자</p>
+
+<h2 id="lombok을-이용한-생성자-주입">Lombok을 이용한 생성자 주입</h2>
+<p>Lombok : 라이브러리의 일종으로, getter/setter/생성자 등을 만들어준다.</p>
+
+<p>@RequiredArgeConstructor : final이 붙은 필드를 모아서 생성자를 자동으로 만들어준다.</p>
+
+<p>장점 : 의존관계 추가할 때 편하다.</p>
+
+<h3 id="lombok-라이브러리-추가-방법">Lombok 라이브러리 추가 방법</h3>
+<p><strong>build.gradle에 추가</strong></p>
+<pre><code class="language-Java">configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+//dependencies 내부에 추가
+dependencies {
+    ...
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    ...
+}    
+</code></pre>
+<p><strong>Preference</strong></p>
+<ol>
+  <li>Plugin -&gt; lombok 설치(웬만하면 그냥 깔려있음)</li>
+  <li>
+    <p>Annotation Processors -&gt; Enable annotation processing</p>
+
+    <p>Lombok은 AnnotationProcessor를 통해 동작하며, 컴파일 시점에 코드를 자동으로 생성해 준다.</p>
+  </li>
+  <li>임의의 테스트 클래스에서 @Getter, @Setter가 생성되는지 확인</li>
+</ol>
+
+<h2 id="다수의-빈이-조회될-때">다수의 빈이 조회될 때</h2>
+<ul>
+  <li>@Autowired의 필드명 매칭 사용</li>
+  <li>@Qualifier</li>
+  <li>@Primary</li>
+</ul>
+
+<h3 id="autowired의-필드명-매칭">@Autowired의 필드명 매칭</h3>
+<p>@Autowired는 기본적으로 타입 매칭을 시도하되, 여러 빈이 있으면 필드 이름, 파라미터 이름으로 빈을 매칭한다.</p>
+
+<p>타입 매칭이 완료되면 필드 매칭은 추가적으로 진행하지는 않는다.</p>
+
+<h3 id="qualifier">@Qualifier</h3>
+<p>수정자 주입, 필드 주입 등에서도 사용이 가능하다.</p>
+
+<p>빈의 이름을 변경하는 것은 아니고 구분 시의 추가적인 옵션을 제공하는 것이다.</p>
+
+<p>@Qualifier(“구분값”) 과 같이 사용하며, 빈 등록 시 @Qualifier 사용, 주입 시 @Qualifier 사용 후 등록한 이름을 적어준다.</p>
+
+<p>@Qualifier 매칭 순서</p>
+<ol>
+  <li>@Qualifier끼리 매칭</li>
+  <li>@Qualifier(“이름”) 이름에 해당하는 빈 찾아서 매칭</li>
+  <li>1, 2, 전부 없다면 NoSuchBeanDefinitionException 발생</li>
+</ol>
+
+<p>@Qualifier의 구분값은 string이므로, 값을 잘못 입력했을 때에도 컴파일 오류가 발생하지 않는다 -&gt; 이를 방지하기 위해 annotation을 직접 만들어 사용하는 방법도 있다.</p>
+
+<p>annotation 재정의의 경우 편리하긴 하지만, 자바 기본 기능이 아니라 스프링이 제공하는 기능이다. 웬만한 것은 스프링 annotation으로 해결한 경우가 아니니 무분별하게 사용하지는 말자.</p>
+
+<h3 id="primary">@Primary</h3>
+<p>우선순위를 정하는 방법으로, 편하긴 하나 한계점이 있다.</p>
+
+<p>빈 등록 시, @Primary가 붙은 빈을 우선적으로 등록</p>
+
+<h3 id="qualifier-vs-primary">@Qualifier vs. @Primary</h3>
+<p>@Primary : 일반적으로 많이 사용하는 기본값에 적용</p>
+
+<p>@Qualifier : Primary 다음으로 선택하는 것. 차선책</p>
+
+<p>-&gt; 우선권은 @Primary보다 @Qualifier가 더 높다.</p>
+
+<p>전체 우선권은 @Qualifier - @Primary - @Autowired 필드명 매칭 순서대로 이루어진다.</p>
+
+<h3 id="map-list를-통한-다수의-빈-조회">Map, List를 통한 다수의 빈 조회</h3>
+<p>다수의 빈이 조회될 때, 생성자에서 Map, List를 이용하면 여러 개의 빈을 조회해서 등록할 수 있다.</p>
+
+<p>예시 : 회원에 따라서 할인 비율을 다르게 하고 싶을 때 사용하는 등…</p>
+
+<h1 id="intellij">IntelliJ</h1>
+<p>command + shift + T : 테스트로 이동</p>
+
+<p>command + F12 : 파일 구조 확인</p>
+
+<p>command + O : 클래스로 이동</p>
+
+<p>인터페이스에서 command + option + B : 구현체로 이동</p>
+
+<p>ctrl + R : 모든 테스트 수행</p>
+
+<p>command + B : 정의로 이동 및 이미 정의일 경우 사용처로 이동</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2022-07-26T17:16:00+09:00">July 26, 2022</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Today+I+Learned_220726%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_220726%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_220726%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_220726%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/TIL_220725/" class="pagination--pager" title="Today I Learned_220725
+">이전</a>
+    
+    
+      <a href="/til/TIL_220801/" class="pagination--pager" title="Today I Learned_220801
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230119/" rel="permalink">Today I Learned_230119
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230116/" rel="permalink">Today I Learned_230116
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221226/" rel="permalink">Today I Learned_221226
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221219/" rel="permalink">Today I Learned_221219
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Teirdarn Linkaden. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

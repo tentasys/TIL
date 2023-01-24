@@ -1,0 +1,1894 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-01-24T22:12:31+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">테르의 개발 일기장</title><subtitle>하루하루 조금씩 열심히</subtitle><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><entry><title type="html">Today I Learned_230119</title><link href="http://localhost:4000/til/TIL_230119/" rel="alternate" type="text/html" title="Today I Learned_230119" /><published>2023-01-19T21:19:00+09:00</published><updated>2023-01-19T21:19:00+09:00</updated><id>http://localhost:4000/til/TIL_230119</id><content type="html" xml:base="http://localhost:4000/til/TIL_230119/">&lt;h1 id=&quot;typescript&quot;&gt;TypeScript&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%98%AC%EC%9D%B8%EC%9B%90-1/dashboard&quot;&gt;인프런 타입스크립트 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;타입-추론&quot;&gt;타입 추론&lt;/h2&gt;
+
+&lt;p&gt;IDE는 tsc -noemit을 계속 돌리고 있음&lt;/p&gt;
+
+&lt;p&gt;타입을 추론해주는 역할을 계속한다&lt;/p&gt;
+
+&lt;p&gt;IDE에 손을 올렸을때 타입을 제대로 추론한다 → 제대로 쓴 것&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;특수한 타입 {} (null과 undefined가 아닌 모든 타입)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ts가 추론해주는 타입이 있는데 이런 건 그냥 그대로 사용하면 됨. ts가 추론하지 못하는 경우에만 직접 타이핑할 것.&lt;/li&gt;
+  &lt;li&gt;추론을 잘못했을 때 고치는 것이 낫다. 우선 ts를 믿어보자&lt;/li&gt;
+  &lt;li&gt;any로 추론할 때 → 타입을 명시해 주자&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// const라서 3으로 변하지 않을텐데 구태여 string으로 변환한 꼴이 되는 것&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//따라서 그냥 그대로 사용하는게 좋다. '3'이라는 정확한 타입이 있는데 string이라는 더 넓은 부정확한 타입이 되는 것&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//x도 number고 y도 number -&amp;gt; return값을 자동으로 number로 추론해 준다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.40.31.png&quot; alt=&quot;스크린샷 2023-01-19 오후 8.40.31.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;타입 추론을 했을 때 이렇게 any가 나오면 잘못된 것이다. 타입 추론을 했을 때 타입이 나오도록 고치자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.41.16.png&quot; alt=&quot;스크린샷 2023-01-19 오후 8.41.16.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이렇게 나오는게 좋다!&lt;/p&gt;
+
+&lt;p&gt;최대한 타입스크립트가 추론해주는 것을 믿어라!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.42.37.png&quot; alt=&quot;스크린샷 2023-01-19 오후 8.42.37.png&quot; /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;를 파이프라고 함 → 이렇게 되면 타입스크립트가 멍청해지는 것! 내가 원래 선언한 타입과 달라졌다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.43.38.png&quot; alt=&quot;스크린샷 2023-01-19 오후 8.43.38.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;내가 원래 선언한 타입으로 잘 나타나면 타입 추론이 잘 된 것&lt;/p&gt;
+
+&lt;aside&gt;
+💡 tsc의 타입 추론을 최대한 믿어라
+
+   타입을 적을 때는 최대한 세부적으로 적어라
+&lt;/aside&gt;
+
+&lt;p&gt;타입이 들어갈 자리 명시, 타입스크립트에서 타입을 뺀 코드도 javascript에서 돌아가야 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;: 뒷부분, as 뒷부분, &amp;lt;&amp;gt; 부분, interface, type, function 일부를 제외하면 자바스크립트와 동일. 제외하고 생각하는 연습을 초반에 해야 함.&lt;/li&gt;
+  &lt;li&gt;타입, 인터페이스, 제네릭은 자바스크립트로 변환되면 사라진다. 따라서 얘네들이 없어도 잘 돌아가야 한다.&lt;/li&gt;
+  &lt;li&gt;꼭 타입 부분을 구분하고 어디가 없어지는지 구분해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;37.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;127.5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;37.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;127.5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;HTMLDivElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#root&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위에는 타입만 있고 아래는 선언만 있는 케이스가 존재할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;위 코드는 아래의 js로 변환된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;use strict&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;add3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.54.34.png&quot; alt=&quot;스크린샷 2023-01-19 오후 8.54.34.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;javascript로 변환될 때 어떤 부분이 사라지는지 보자!&lt;/p&gt;
+
+&lt;p&gt;as 키워드도 사라짐&lt;/p&gt;
+
+&lt;p&gt;as : 앞에 타입을 다른 타입으로 강제함&lt;/p&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;aa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;aa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;unknown&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;number&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-jsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;use strict&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;aa&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;aa&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;자바스크립트에 비해서 자유도가 확 줄어듦(ex: 변수에 문자열을 넣었다가 숫자로 바꾸는 등의 행동 어려워짐)&lt;/li&gt;
+  &lt;li&gt;사실상..실무에서는 아래와 같은것을 할 일이 크게 없다..&lt;/li&gt;
+  &lt;li&gt;생각해보면 당연히 안 할 일이므로 ts에서도 하지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;any를 최대한 쓰지 않는 것을 목표로 할 것.&lt;/li&gt;
+  &lt;li&gt;never, unknown, any 타입 주의하기. any는 최대한 피하고 쓰더라도 나중에 꼭 제대로 타이핑하기.
+&lt;a href=&quot;https://ui.toast.com/weekly-pick/ko_20220323&quot;&gt;never 좋은 설명 글&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;never에서는 일반적인 타입이 올 수 없다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//ts : 빈배열에 주의하자&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// noImplicitAny가 false일 때&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//const array: string = []; //이렇게 타입을 선언해줘야 한다.&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;강의에서는 array에 never 타입이 온다고 했는데, tsc 버전이 업데이트되었는지 아래와 같은 에러 메시지가 뜬다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Variable ‘array’ implicitly has type ‘any[]’ in some locations where its type cannot be determined.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Variable ‘array’ implicitly has an ‘any[]’ type.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;최대한 ! 대신 if를 쓸 것&lt;/li&gt;
+  &lt;li&gt;!는 보장하기가 어렵다&lt;/li&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;타입스크립트에서 or는&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;(두개)가 아니라&lt;/td&gt;
+          &lt;td&gt;(한개)다&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#head&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//얘가 무조건 존재한다고 보장. null이나 undefined가 아님을 보장하는 것&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//head가 null이면 뻑남&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//head가 없어도 false가 되니까 안정성이 생김&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#head&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;head는 html 태그에 해당&lt;/li&gt;
+  &lt;li&gt;head.innerHTML 가능 → 타입 정의가 이미 되어 있음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 9.12.34.png&quot; alt=&quot;스크린샷 2023-01-19 오후 9.12.34.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;head는 Element가 될 수도 있고 null이 될 수도 있다&lt;/p&gt;
+
+&lt;p&gt;→ ts는 여러 가능성을 고려해둔다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;!가 들어가면&lt;/td&gt;
+      &lt;td&gt;null이 빠진다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 9.14.30.png&quot; alt=&quot;스크린샷 2023-01-19 오후 9.14.30.png&quot; /&gt;&lt;/p&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">TypeScript 인프런 타입스크립트 강의 수강</summary></entry><entry><title type="html">Today I Learned_230116</title><link href="http://localhost:4000/til/TIL_230116/" rel="alternate" type="text/html" title="Today I Learned_230116" /><published>2023-01-16T21:33:00+09:00</published><updated>2023-01-16T21:33:00+09:00</updated><id>http://localhost:4000/til/TIL_230116</id><content type="html" xml:base="http://localhost:4000/til/TIL_230116/">&lt;h1 id=&quot;typescript&quot;&gt;TypeScript&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%98%AC%EC%9D%B8%EC%9B%90-1/dashboard&quot;&gt;인프런 타입스크립트 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;타입스크립트-프로젝트-세팅&quot;&gt;타입스크립트 프로젝트 세팅&lt;/h2&gt;
+&lt;h2 id=&quot;ts-문법&quot;&gt;ts 문법&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기본적으로 변수, 속성, 매개변수, 리턴값에 타입이 붙었다고 생각하면 됨.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;37.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;127.5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위 코드를 그대로 IDE에 복사-붙여넣기 하면 오류를 찾을 수 있다!&lt;/p&gt;
+
+&lt;p&gt;add - 중복 정의라고 IDE가 검사해 줌!&lt;/p&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 변수 뒤에는 콜론(:) 타입을 붙이면 된다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//5와 같이 타입이 명확한 경우 명시해줄 수 있다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 대문자 쓰면 안 된다&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//const a: Number = 5; 이거 안 됨&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;undefined&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;symbol&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Symbol&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;abc&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//여기서 BigInt literals are not available when targeting lower than ES2020. 가 발생&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bigint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000000&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//찾아보니 tsconfig.json에서 target이 es2016으로 되어있었다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//target es2020으로 바꾸니 해결.&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;any&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//any : 모든 타입 지원&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//any를 쓰는것은 사실상 의미가 없다. javascript나 다름없기 때문에&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//매개면수 뒤에토 타입을 붙여줘야 하고, 리턴값 뒤에도 타입을 붙여줘야 한다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//리턴값의 타입 : 매개변수 뒤에 붙여준다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//add의 return값은 number&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//객체에도 타입을 붙여줄 수 있다.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;37.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;127.5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;타입스크립트는 자바스크립트의 변수, 매개변수, 리턴값에 타입을 붙여넣은 것.&lt;/p&gt;
+
+&lt;p&gt;타입스크립트에서 any라는 타입을 전부 없애면 javascript에서 타입스크립트로 완벽하게 변환했다고 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;타입스크립트의 목적 : any를 없애는 것&lt;/p&gt;
+
+&lt;p&gt;타입을 붙여주는 행위 : 타이핑한다&lt;/p&gt;
+
+&lt;p&gt;함수명에도 타입을 붙여주는 이유 : 자바스크립트의 변수, 매개변수, 리턴값에 타입을 붙이는 것이 목표이기 때문에&lt;/p&gt;
+
+&lt;p&gt;화살표 함수 읽는 법&lt;/p&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//아래와 같은 함수일 때&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//일단 콜론을 찾아서 뒷부분을 없애보자. 다 지웠을 때 javascript로 말이 되는 코드인지 확인.&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//type으로 타입을 선언하는 방식 : type alias&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//매개변수 2개와 리턴값&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;//이렇게 타입을 별칭으로 빼 둘 수 있다.&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//주의해야 할 점! -&amp;gt; function과 화살표의 차리&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//function은 타입이 콜론(:)으로 나오는데&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//화살표 함수는 타입이 화살표(=&amp;gt;)로 나온다&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Add&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//배열 타이핑 방법&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//제네릭 사용. 제네릭도 타이핑의 핵심&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//튜플 : 고정된 길이의 배열 (배열은 길이를 마구 늘릴 수 있다)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//개수 맞춰야 한다&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;456&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;111&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//이러면 에러남&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//아예 값을 고정시켜버릴 수 있다.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//타입 자리에 고정된 원시값을 넣을 수 있다&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//true만 넣을 수 있음&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//이러면 안 된다&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//고정된 원시값이 필요한 경우 : const&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//상수는 굳이 타입을 명시할 필요가 없다. 왜냐면 그 값으로 고정이니까&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;타입스크립트는 타입을 선언하는 방법이 엄청 많다..&lt;/p&gt;
+
+&lt;div class=&quot;language-tsx highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//인터페이스를 통해 함수의 타입을 정의하는 방법&lt;/span&gt;
+&lt;span class=&quot;kr&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Add2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Add2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;함수 타이핑하는 방법&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;일반 함수 타이핑(콜론 사용)&lt;/li&gt;
+  &lt;li&gt;화살표 함수&lt;/li&gt;
+  &lt;li&gt;인터페이스&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;대부분 1번과 2번 방법을 사용한다.&lt;/p&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">TypeScript 인프런 타입스크립트 강의 수강</summary></entry><entry><title type="html">Today I Learned_221226</title><link href="http://localhost:4000/til/TIL_221226/" rel="alternate" type="text/html" title="Today I Learned_221226" /><published>2022-12-26T20:58:00+09:00</published><updated>2022-12-26T20:58:00+09:00</updated><id>http://localhost:4000/til/TIL_221226</id><content type="html" xml:base="http://localhost:4000/til/TIL_221226/">&lt;h1 id=&quot;typescript&quot;&gt;TypeScript&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%98%AC%EC%9D%B8%EC%9B%90-1/dashboard&quot;&gt;인프런 타입스크립트 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;타입스크립트-프로젝트-세팅&quot;&gt;타입스크립트 프로젝트 세팅&lt;/h2&gt;
+&lt;p&gt;node 설치 → tsc 실행을 위함&lt;/p&gt;
+
+&lt;p&gt;Editor 설치 → Editor 자체가 tsc —noEmit을 계속 쳐주고 있기에, 타입검사를 자동으로 진행해준다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm init &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#package.json 파일이 생김. 이 폴더를 노드 프로젝트로 만들겠다.&lt;/span&gt;
+npm i typescript &lt;span class=&quot;c&quot;&gt;#typescript 설치 -&amp;gt; tsc 사용 가능&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#설치 완료 후&lt;/span&gt;
+npx tsc &lt;span class=&quot;c&quot;&gt;# ts를 js로 변환. 타입 검사와는 별개이기 때문에 타입 검사에 실패해도 js파일이 생성된다.&lt;/span&gt;
+npx tsc &lt;span class=&quot;nt&quot;&gt;--init&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# tsconfig.json 생성&lt;/span&gt;
+npx tsc &lt;span class=&quot;nt&quot;&gt;--noEmit&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 타입 검사&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;npm : node의 프로그램들을 모아 놓은 저장소. 패키지 매니저&lt;/p&gt;
+
+&lt;p&gt;typescript 프로젝트 : package.json, tsconfig.json 세팅 필수!&lt;/p&gt;
+
+&lt;p&gt;타입스크립트 문법만 알고 싶으면 playground 이용&lt;/p&gt;
+
+&lt;p&gt;tsconfig.json 설정들&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;allowJS : TS, JS 동시에 쓸 수 있음&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;strict: true로 설정.&lt;/strong&gt; false로 설정하면 typescript를 사용하는 의미가 없다.&lt;/li&gt;
+  &lt;li&gt;target(default: es2016) : 타겟 코드를 특정 버전(es2016)으로 변환시켜 줌
+    &lt;ul&gt;
+      &lt;li&gt;ES5 : 익스플로러에서도 동작 가능&lt;/li&gt;
+      &lt;li&gt;ES3 : 완전 옛날&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;module : 어떤 모듈 시스템을 쓸 것인가? CommonJS, ES2022 등..
+    &lt;ul&gt;
+      &lt;li&gt;ES2022, ES2015 별 차이 없음. 최신꺼 쓰려면 이거 쓰자&lt;/li&gt;
+      &lt;li&gt;CommonJS : node module 시스템&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;esModuleInterop: true&lt;/li&gt;
+  &lt;li&gt;forceConsistentCasingInFileNames : true로 하자.
+    &lt;ul&gt;
+      &lt;li&gt;타입스크립트에서는 모듈시스템이 있어서 다른 파일을 import할 수 있음&lt;/li&gt;
+      &lt;li&gt;window에서는 대소문자를 구분하지 않음&lt;/li&gt;
+      &lt;li&gt;리눅스나 맥에서는 대소문자가 중요하므로 에러가 난다
+        &lt;ul&gt;
+          &lt;li&gt;윈도우 쓰는 사람이 배포할 때 실수한다&lt;/li&gt;
+          &lt;li&gt;옵션으로 대소문자 꼭 지켜서 import할 수 있도록 하는 옵션&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;skipLibCheck: 라이브러리 체크를 건너뛰는 것. 라이브러리에는 .d.ts(그 패키지의 타입을 정리를 해 둔 파일)가 엄청 많은데, 이를 전부 검사하면 컴파일러가 너무 느려진다. 따라서 실제로 사용할 타입만 검사하기 위함. true로 설정해 놓자.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">TypeScript 인프런 타입스크립트 강의 수강</summary></entry><entry><title type="html">Today I Learned_221219</title><link href="http://localhost:4000/til/TIL_221219/" rel="alternate" type="text/html" title="Today I Learned_221219" /><published>2022-12-19T22:40:00+09:00</published><updated>2022-12-19T22:40:00+09:00</updated><id>http://localhost:4000/til/TIL_221219</id><content type="html" xml:base="http://localhost:4000/til/TIL_221219/">&lt;h1 id=&quot;typescript&quot;&gt;TypeScript&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%98%AC%EC%9D%B8%EC%9B%90-1/dashboard&quot;&gt;인프런 타입스크립트 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;타입스크립트를 왜 배워야 하느냐? - 자바스크립트보다 안정적.&lt;/p&gt;
+
+&lt;p&gt;안정적 - 에러가 덜 난다.&lt;/p&gt;
+
+&lt;p&gt;타입스크립트들은 실수들을 잡아줄 뿐, 자바스크립트의 에러를 완전히 커버하지는 않는다.&lt;/p&gt;
+
+&lt;p&gt;Trade-off에 의해 자바스크립트보다 자유도가 많이 줄어들었지만, 대신 안정성이 높아진다.&lt;/p&gt;
+
+&lt;p&gt;또한 자바스크립트에서 타입스크립트로 전환하는게 어렵지는 않음 - 러닝커브가 낮다.&lt;/p&gt;
+
+&lt;p&gt;자바스크립트 - 명시적인 자료형이 없다. 타입스크립트는 여기다가 타입을 명시해 준 것.&lt;/p&gt;
+
+&lt;p&gt;타입스크립트는 코드가 실행되기 전에 실행하고(정적), 프로그램 타입이 정확한지 확인한다(타입 검사)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;typescript는 최종적으로 javascript로 변환된다&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;브라우저들은 js를 실행하지 ts를 실행하지는 않는다.
+    &lt;ul&gt;
+      &lt;li&gt;typescript에서는 말이 되는데 javascript에서 말이 안 되는 코드는 있을 수 없음 → 최종적으로 javascript로 변환되기 때문에&lt;/li&gt;
+      &lt;li&gt;javascript에 타입들이 추가되었다고 이해하자.&lt;/li&gt;
+      &lt;li&gt;deno : 바로 타입스크립트를 사용할 수 있다. 자바스크립트 실행 안 해도 됨.
+        &lt;ul&gt;
+          &lt;li&gt;그러나 deno는 node조차 뛰어넘지 못함…&lt;/li&gt;
+          &lt;li&gt;대중적인 런타임은 존재하지 않는다…&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;typescript는 언어이자 컴파일러(&lt;strong&gt;tsc&lt;/strong&gt;)이다. 컴파일러는 ts 코드를 js로 바꿔준다.
+    &lt;ul&gt;
+      &lt;li&gt;엄밀하게 말하면 트랜스파일러가 맞지 않을까..&lt;/li&gt;
+      &lt;li&gt;코드를 열심히 짜고 tsc를 통해 변환한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;tsc는 &lt;strong&gt;tsconfig.json&lt;/strong&gt;에 따라 ts 코드를 js(tsc 시 생성)로 바꿔준다. 인풋인 ts와 아웃풋인 js 모두에 영향을 끼치므로 &lt;strong&gt;tsconfig.json&lt;/strong&gt; 설정을 반드시 봐야한다.
+    &lt;ul&gt;
+      &lt;li&gt;컴파일러 옵션들에 따라서 결과물이 달라진다.&lt;/li&gt;
+      &lt;li&gt;tsc에게 명령하면 내 typescript 코드를 특정 버전의 javascript로 변경할 수 있다.&lt;/li&gt;
+      &lt;li&gt;가장 중요한 파일!!! (package.json도 중요하자)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;tsc는 타입 검사의 역할도 한다.
+    &lt;ul&gt;
+      &lt;li&gt;변수에 타입을 부여하고 추론해 준다. 명확한 타입을 기입하면 기억하고, 타입을 기록하지 않는다면 추론한다.&lt;/li&gt;
+      &lt;li&gt;tsc의 역할 : 타입스크립트 코드를 자바스크립트로 변환해 준다.&lt;/li&gt;
+      &lt;li&gt;타입 검사 - 변환 순서대로 진행됨
+        &lt;ul&gt;
+          &lt;li&gt;타입 검사가 실패하더라도 자바스크립트로 변환은 된다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">TypeScript 인프런 타입스크립트 강의 수강</summary></entry><entry><title type="html">Today I Learned_221117</title><link href="http://localhost:4000/til/TIL_221117/" rel="alternate" type="text/html" title="Today I Learned_221117" /><published>2022-11-17T23:08:00+09:00</published><updated>2022-11-17T23:08:00+09:00</updated><id>http://localhost:4000/til/TIL_221117</id><content type="html" xml:base="http://localhost:4000/til/TIL_221117/">&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard&quot;&gt;인프런 HTTP 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http-헤더---캐시와-조건부-요청&quot;&gt;HTTP 헤더 - 캐시와 조건부 요청&lt;/h2&gt;
+
+&lt;h3 id=&quot;캐시-기본-동작&quot;&gt;캐시 기본 동작&lt;/h3&gt;
+&lt;p&gt;캐시가 없을 때? -&amp;gt; 계속 네트워크를 통해서 데이터를 다운로드 받아야 한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;캐시-적용&quot;&gt;캐시 적용&lt;/h4&gt;
+&lt;p&gt;헤더에 cache-control -&amp;gt; 캐시가 유효한 시간을 초 단위로 설정할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;캐시 가능 시간 동안 네트워크를 사용하지 않아도 된다.&lt;/p&gt;
+
+&lt;p&gt;브라우저 캐시를 참조하여 사용한다.&lt;/p&gt;
+
+&lt;p&gt;캐시 유효 시간이 초과하면(stale) 서버를 통해 데이터를 다시 조회하고 캐시를 갱신 -&amp;gt; 네트워크 다운로드가 다시 발생&lt;/p&gt;
+
+&lt;p&gt;리소스는 그대로인데 전체를 다시 다운로드 받는다. 너무 손해 아닐까?&lt;/p&gt;
+
+&lt;p&gt;유효 기간이 지났는데 서버가 가진 데이터 / 클라이언트가 가진 데이터가 같다면?&lt;/p&gt;
+
+&lt;h3 id=&quot;검증-헤더와-조건부-요청-1&quot;&gt;검증 헤더와 조건부 요청 1&lt;/h3&gt;
+&lt;p&gt;캐시 유효 시간이 초과했을 때, 두 가지 상황이 발생할 수 있다 -&amp;gt; 데이터가 변경되는 경우 / 데이터가 변경되지 않는 경우&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; 검증 헤더가 이 문제를 해결할 수 있음&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;검증 헤더&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;클라이언트의 캐시 데이터와 서버의 데이터가 같다는 사실을 확인할 수 있는 방법&lt;/p&gt;
+
+&lt;p&gt;Last-Modified: 데이터가 마지막으로 수정된 수정일(UTC)&lt;/p&gt;
+
+&lt;p&gt;클라이언트 헤더에 if-modified-since(조건부 요청)를 보내면(캐시가 가지고 있는 데이터 최종 수정일) -&amp;gt; 서버의 데이터 최종수정일과 비교 -&amp;gt; 맞으면 서버에서 304 Not Modified를 리턴하고 브라우저 캐시 사용&lt;/p&gt;
+
+&lt;p&gt;최종적으로는 body를 제외한 header만 전송이 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;정리&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;캐시 유효 시간이 초과해도 서버의 데이터가 not modified이면 -&amp;gt; 304 및 헤더 정보만 리턴
+    &lt;ul&gt;
+      &lt;li&gt;클라이언트는 캐시의 메타 정보를 갱신 및 정보 재활용&lt;/li&gt;
+      &lt;li&gt;네트워크 다운로드 발생(요청/응답)하긴 하나, 용량이 적은 정보만 다운로드 받는다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;검증-헤더와-조건부-요청-2&quot;&gt;검증 헤더와 조건부 요청 2&lt;/h3&gt;
+&lt;p&gt;검증 헤더 : 캐시 데이터와 서버 데이터가 같은지 검증하는 데이터(Last-Modified, ETag)&lt;/p&gt;
+
+&lt;p&gt;조건부 요청 헤더 : 검증 헤더로 조건에 따른 분기를 서버에게 요청&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;조건이 만족하면 200 OK, 만족하지 않으면 304 Not Modified 리턴
+    &lt;ul&gt;
+      &lt;li&gt;If-Modified-Since -&amp;gt; Last-Modified&lt;/li&gt;
+      &lt;li&gt;If-None-Match -&amp;gt; ETag&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;if-modified-since&quot;&gt;If-Modified-Since&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;이 이후에 데이터가 수정되었는지?
+    &lt;ul&gt;
+      &lt;li&gt;수정 안되었으면 304 Not Modified&lt;/li&gt;
+      &lt;li&gt;수정 되었으면 200 OK&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;단점
+    &lt;ul&gt;
+      &lt;li&gt;초 단위로 초 미만 단위는 조정할 수 없다.&lt;/li&gt;
+      &lt;li&gt;날짜 기반 로직 사용 - 데이터 자체는 수정이 안 되었는데 날짜만 바뀐 경우 대응을 못 한다&lt;/li&gt;
+      &lt;li&gt;크게 컨텐츠에 영향을 끼치지 않는데 굳이 캐시를 갱신해야 하나?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;if-none-match&quot;&gt;If-None-Match&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;ETag -&amp;gt; Last-Modified의 단점을 보완&lt;/li&gt;
+  &lt;li&gt;ETag : Entity Tag&lt;/li&gt;
+  &lt;li&gt;캐시 데이터에 임의의 고유 버전 이름을 달아둔다 - 데이터가 변경되면 ETag 이름을 바꿔 변경(hash 다시 생성)&lt;/li&gt;
+  &lt;li&gt;해시는 파일이 동일하면 같은 결과가 나온다&lt;/li&gt;
+  &lt;li&gt;ETag가 같으면 유지, 다르면 다시 받기&lt;/li&gt;
+  &lt;li&gt;클라이언트가 If-None-Match로 보낸 ETag값이 같다? - 304 Not Modified 보낸다
+    &lt;ul&gt;
+      &lt;li&gt;If-None-Match 말이 이상해보이지만, ETag값이 달라야 200 OK (전체 다운로드)가 진행된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;정리&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ETag만 서버에 보내서 같으면 유지, 다르면 다시 받기 -&amp;gt; 캐시 제어 로직을 서버에서 완전히 관리(클라이언트는 캐시 매커니즘을 모른다)&lt;/li&gt;
+  &lt;li&gt;서버가 파일이 변경되어도 ETag를 유지하는 등 서버에서 캐시 제어 로직을 관리할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;캐시와-조건부-요청-헤더&quot;&gt;캐시와 조건부 요청 헤더&lt;/h3&gt;
+&lt;h4 id=&quot;cache-control&quot;&gt;Cache-Control&lt;/h4&gt;
+&lt;p&gt;캐시 제어. 캐시 지시어(directives)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cache-Control: max-age
+    &lt;ul&gt;
+      &lt;li&gt;초 단위의 캐시 유효 시간(보통은 길게 잡는다)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cache-Control: no-cache
+    &lt;ul&gt;
+      &lt;li&gt;데이터 캐시하지 말라는 건가?&lt;/li&gt;
+      &lt;li&gt;데이터는 캐시해도 되는데, 항상 캐시를 쓰기 전에 If-Modified-Since 등 조건부 요청을 해서 로컬에 있는 캐시 데이터를 무조건 검증하고 쓰라는 듯.&lt;/li&gt;
+      &lt;li&gt;서버의 데이터가 바뀌었는지, 바뀌지 않았는지 검증해야 한다.&lt;/li&gt;
+      &lt;li&gt;항상 원 서버에 검증 - 중간의 캐시 프록시 서버를 거치는 것이 아니라 원래 서버까지 가서 검증을 진행한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cache-Contro: no-store
+    &lt;ul&gt;
+      &lt;li&gt;데이터에 민감한 정보가 있으므로 저장하면 안된다&lt;/li&gt;
+      &lt;li&gt;메모리에서 사용하고 최대한 빨리 삭제해야 한다.&lt;/li&gt;
+      &lt;li&gt;no-cache / no-store 헷갈리면 안 된다!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;pragma&quot;&gt;Pragma&lt;/h4&gt;
+&lt;p&gt;no-cache처럼 동작하며, HTTP 1.0 하위호환이다.&lt;/p&gt;
+
+&lt;h4 id=&quot;expires&quot;&gt;Expires&lt;/h4&gt;
+&lt;p&gt;캐시 만료일 지정(하위 호환). 초 단위가 아니라 만료일을 날짜로 지정하는 것&lt;/p&gt;
+
+&lt;p&gt;지금은 Cache-Control:max-age 권장하며, max-age와 함께 사용하면 Expires는 무시된다.&lt;/p&gt;
+
+&lt;h4 id=&quot;검증-헤더와-조건부-요청-헤더&quot;&gt;검증 헤더와 조건부 요청 헤더&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;검증 헤더(Validator)
+    &lt;ul&gt;
+      &lt;li&gt;ETag, Last-Modified&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;조건부 요청 헤더
+    &lt;ul&gt;
+      &lt;li&gt;If-Match, If-None-Match&lt;/li&gt;
+      &lt;li&gt;If-Modified-Since, If-Unmodified-Since&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;프록시-캐시&quot;&gt;프록시 캐시&lt;/h3&gt;
+&lt;p&gt;CDN 서비스(AWS CloudFront)&lt;/p&gt;
+
+&lt;p&gt;요청이 오면 원 서버에 직접 요청하는 것이 아니라 프록시 서버에 접근하도록 요청을 한다.&lt;/p&gt;
+
+&lt;p&gt;public 캐시 : 프록시 서버 등, 중간에서 공용으로 사용하는 캐시&lt;/p&gt;
+
+&lt;p&gt;private 캐시 : 웹 브라우저나 로컬에 저장되는 캐시&lt;/p&gt;
+
+&lt;h4 id=&quot;cache-control-캐시-지시어&quot;&gt;Cache-Control 캐시 지시어&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cache-Control: public
+    &lt;ul&gt;
+      &lt;li&gt;응답이 public캐시에 저장되어도 됨&lt;/li&gt;
+      &lt;li&gt;공용으로 사용하는 이미지 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cache-Control: private
+    &lt;ul&gt;
+      &lt;li&gt;응답이 해당 사용자만을 위한 것. 중간 public 캐시가 아닌 private 캐시에 저장되어야 함&lt;/li&gt;
+      &lt;li&gt;기본값&lt;/li&gt;
+      &lt;li&gt;로그인 정보 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cache-Control: s-maxage
+    &lt;ul&gt;
+      &lt;li&gt;프록시 캐시에만 적용되는 max-age&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Age: 60
+    &lt;ul&gt;
+      &lt;li&gt;오리진 서버에서 응답 후 프록시 캐시 내에 머문 시간&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;캐시-무효화&quot;&gt;캐시 무효화&lt;/h3&gt;
+&lt;p&gt;확실히 캐시 무효화를 할 수 있는 응답들이 있음&lt;/p&gt;
+
+&lt;p&gt;이 페이지는 절대 캐시가 되면 안된다면 이걸 다 넣어야 함&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Cache-Control: no-cache, no-store, must-revalidate
+Pragma: no-cache
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;Cache-Control: no-cache
+    &lt;ul&gt;
+      &lt;li&gt;데이터를 &lt;strong&gt;항상&lt;/strong&gt; 원 서버에 검증하고 사용&lt;/li&gt;
+      &lt;li&gt;원 서버에 접근할 수 없는 경우, 캐시 서버 설정에 따라서 200 OK를 보내줄 수 있음 (프록시 캐시에 저장된 데이터)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cache-Control: no-store&lt;/li&gt;
+  &lt;li&gt;Cache-Control: must-revalidate
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;캐시 만료 후 최초 조회 시&lt;/strong&gt; 원 서버에 검증해야 함&lt;/li&gt;
+      &lt;li&gt;원 서버에 접근할 수 없는 경우, 항상 오류가 발생 (504 Gateway Timeout)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pragma: no-cache
+    &lt;ul&gt;
+      &lt;li&gt;혹시 모를 HTTP 1.0에서 올 요청을 피해야 하므로&lt;/li&gt;
+      &lt;li&gt;HTTP 1.0은 Cache-Control: no-cache를 모른다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">HTTP 인프런 HTTP 강의 수강</summary></entry><entry><title type="html">Today I Learned_221114</title><link href="http://localhost:4000/til/TIL_221114/" rel="alternate" type="text/html" title="Today I Learned_221114" /><published>2022-11-14T19:33:00+09:00</published><updated>2022-11-14T19:33:00+09:00</updated><id>http://localhost:4000/til/TIL_221114</id><content type="html" xml:base="http://localhost:4000/til/TIL_221114/">&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard&quot;&gt;인프런 HTTP 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http-일반-헤더&quot;&gt;HTTP 일반 헤더&lt;/h2&gt;
+&lt;p&gt;헤더 필드의 구성&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;필드이름 : 필드값
+Host: www.google.com
+Contemt-Type:text/html;charset=UTF-8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;필드 이름은 대소문자 구분이 온다.
+스타트 라인 다음에 쭉 헤더들이 오고, 그 다음 메시지 바디 부분이 들어온다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HTTP 헤더의 용도&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTTP 전송에 필요한 모든 부가 정보 (스타트 라인 제외)&lt;/li&gt;
+  &lt;li&gt;필요 시 임의의 헤더 추가가 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;과거의 헤더 분류(RFC2616)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;General: 메시지 전체에 적용되는 정보
+    &lt;ul&gt;
+      &lt;li&gt;요청, 응답 상관 없이 메시지 전체에 적용되는 헤더&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Request: 요청을 보낼 때 정보
+    &lt;ul&gt;
+      &lt;li&gt;User-Agent, 웹 브라우저 정보&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Response: 응답 정보
+    &lt;ul&gt;
+      &lt;li&gt;요청을 받아서 처리하는 서버(아파치 등)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Entity: 엔티티 바디 정보
+    &lt;ul&gt;
+      &lt;li&gt;Content-Type. 실제 메시지 바디에 들어가는 내용과 관련된 것들&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;메시지 본문은 엔티티 본문(전달할 실제 데이터)을 전달하는데 사용.
+엔티티 헤더는 엔티티 본문의 데이터를 해석할 수 있는 정보 제공&lt;/p&gt;
+
+&lt;p&gt;-&amp;gt; 2014년에 RFC7230~7235로 스펙이 쪼개짐 -&amp;gt; 엔티티 바디가 사라짐&lt;/p&gt;
+
+&lt;p&gt;엔티티라는 용어가 사라지고 표현(Representation)으로 바뀜&lt;/p&gt;
+
+&lt;p&gt;RFC7230 HTTP Body&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;메시지 본문(페이로드)을 통해 표현 데이터 전달&lt;/li&gt;
+  &lt;li&gt;표현 : 요청이나 응답에서 전달할 실제 데이터 (표현 헤더 + 표현 데이터)&lt;/li&gt;
+  &lt;li&gt;표현 헤더 : 표현 데이터를 해석할 수 있는 정보 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;표현&quot;&gt;표현&lt;/h3&gt;
+&lt;p&gt;표현 = 메타데이터 + 데이터&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;표현 헤더&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Content-Type: 표현 데이터가 어떤 형식을 가지고 있는지?&lt;/li&gt;
+  &lt;li&gt;Content-Encoding: 표현 데이터의 압축 방식&lt;/li&gt;
+  &lt;li&gt;Content-Language: 표현 데이터의 자연 언어(한국어인지?영어인지?)&lt;/li&gt;
+  &lt;li&gt;Content-Length: 표현 데이터의 길이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;전송과 응답에 모두 사용된다. (명확히는 Payload Header로 쪼개야 함)&lt;/p&gt;
+
+&lt;h4 id=&quot;content-type&quot;&gt;Content-Type&lt;/h4&gt;
+&lt;p&gt;Content body에 들어갈 내용이 뭔지?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;text/html, charset=utf-8&lt;/li&gt;
+  &lt;li&gt;application/json&lt;/li&gt;
+  &lt;li&gt;image/png&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;content-encoding&quot;&gt;Content-Encoding&lt;/h4&gt;
+&lt;p&gt;데이터를 보내는 곳에서 바디를 압축함 -&amp;gt; 클라이언트가 이걸 풀려면 압축 해제 관련 정보를 가지고 있어야 한다.&lt;/p&gt;
+
+&lt;p&gt;데이터를 읽는 쪽에서 인코딩 헤더의 정보로 압축을 해제 한다. (gzip, deflate, identity:압축 안 함 등)&lt;/p&gt;
+
+&lt;h4 id=&quot;content-language&quot;&gt;Content-Language&lt;/h4&gt;
+&lt;p&gt;ko, en, en-US&lt;/p&gt;
+
+&lt;p&gt;다국어 처리 할 수 있다.&lt;/p&gt;
+
+&lt;h4 id=&quot;content-length&quot;&gt;Content-Length&lt;/h4&gt;
+&lt;p&gt;Transfer-Encoding을 사용하면 Content-Length를 사용하면 안 된다.&lt;/p&gt;
+
+&lt;p&gt;Transfer-Encoding 내부에 Content-Length가 들어가 있기 때문.&lt;/p&gt;
+
+&lt;h3 id=&quot;콘텐츠-협상contents-negotiation&quot;&gt;콘텐츠 협상(Contents Negotiation)&lt;/h3&gt;
+&lt;p&gt;클라이언트가 원하는 표현 방식대로 달라고 서버에 요청하는 것.&lt;/p&gt;
+
+&lt;p&gt;클라이언트의 우선순위에 맞춰서 표현 데이터를 만들어 주는 것.&lt;/p&gt;
+
+&lt;p&gt;물론 서버가 못 줄 수도 있지만, 최대한 노력한다.&lt;/p&gt;
+
+&lt;p&gt;협상 헤더는 요청시에만 사용한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Accept: 클라이언트가 선호하는 미디어 타입 전달&lt;/li&gt;
+  &lt;li&gt;Accept-Charset: 클라이언트가 선호하는 문자 인코딩&lt;/li&gt;
+  &lt;li&gt;Accept-Encoding: 클라이언트가 선호하는 압축 인코딩&lt;/li&gt;
+  &lt;li&gt;Accept-Language: 클라이언트가 선호하는 자연 언어&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;accept-language-적용-예제&quot;&gt;Accept-Language 적용 예제&lt;/h4&gt;
+&lt;p&gt;적용되기 전&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;한국어 브라우저를 사용하여 요청&lt;/li&gt;
+  &lt;li&gt;서버는 기본 영어, 서브 한국어 지원&lt;/li&gt;
+  &lt;li&gt;요청이 오면 기본 값인 영어로 응답을 해 준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;적용되기 후&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;위와 같은 경우인데 Accept-Language:ko로 보냄&lt;/li&gt;
+  &lt;li&gt;클라이언트가 원하는 ko로 응답&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;예외?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;한국어 브라우저 사용&lt;/li&gt;
+  &lt;li&gt;서버는 기본 독일어, 서브 영어 지원&lt;/li&gt;
+  &lt;li&gt;클라이언트는 ko로 요청&lt;/li&gt;
+  &lt;li&gt;이거 어떻게 해야 함? -&amp;gt; 우선순위 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;우선순위-quality-valuesq&quot;&gt;우선순위, Quality Values(q)&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /event
+Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7
+Accept: text/*, text/plain, text/plain;format=flowed, */*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;0~1 사이의 값, 클수록 높은 우선순위&lt;/li&gt;
+  &lt;li&gt;생략하면 1 (ko-KR은 생략되었으므로 가장 높은 우선순위인 1이다.)&lt;/li&gt;
+  &lt;li&gt;우선순위에 따라서 값을 보내준다.&lt;/li&gt;
+  &lt;li&gt;구체적인 것이 우선한다.
+    &lt;ul&gt;
+      &lt;li&gt;ex : Accept: text/&lt;em&gt;, text/plain, text/plain;format=flowed, */&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;text/plain;format=flowed&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;text/plain&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;text/*&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;ol&gt;
+          &lt;li&gt;&lt;em&gt;/&lt;/em&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;전송-방식&quot;&gt;전송 방식&lt;/h3&gt;
+&lt;p&gt;단순, 압축, 분할, 범위 전송&lt;/p&gt;
+
+&lt;h4 id=&quot;단순-전송&quot;&gt;단순 전송&lt;/h4&gt;
+&lt;p&gt;요청을 하면 응답을 준다. Content에 대한 길이를 알 수 있을 때 사용한다.&lt;/p&gt;
+
+&lt;p&gt;단순하게 한 번에 요청하고 한 번에 쭉 받는다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP/1.1 200 OK
+Content-Type: text/html;charset=UTF-8
+Content-Length: 3423
+&amp;lt;html&amp;gt;
+  &amp;lt;body&amp;gt;...&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;압축-전송&quot;&gt;압축 전송&lt;/h4&gt;
+&lt;p&gt;서버에서 gzip같은걸로 압축해서 보낸다. Content-Encoding을 넣어줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP/1.1 200 OK
+Content-Type: text/html;charset=UTF-8
+Content-Encoding: gzip
+Content-Length: 521
+lkj123kljoiasudlkjaweioluywlnfdo912u34ljko98udjkl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;분할-전송&quot;&gt;분할 전송&lt;/h4&gt;
+&lt;p&gt;Transfer-Encoding. chunk로 나누어서 보낸다.&lt;/p&gt;
+
+&lt;p&gt;용량이 클 때 - 한 번에 쭉 보내면 시간이 오래 걸린다.&lt;/p&gt;
+
+&lt;p&gt;분할 전송으로 보내면 오는 대로 바로바로 보내주면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;content-length를 넣으면 안 된다!&lt;/strong&gt; - 예상이 되지 않음. 내부 chunk에 길이가 다 있다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP/1.1 200 OK
+Content-Type: text/plain
+Transfer-Encoding: chunked
+5
+Hello
+5
+World
+0
+\r\n
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;나는 5바이트를 보낼거야 -&amp;gt; Hello -&amp;gt; 나는 5바이트를 보낼거야 -&amp;gt; world -&amp;gt; 끝(0)&lt;/p&gt;
+
+&lt;h4 id=&quot;범위-전송&quot;&gt;범위 전송&lt;/h4&gt;
+&lt;p&gt;이미 절반 받았으니까 나머지 절반 주세요~~&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Range: bytes 1001-2000 / 2000
+qweqwe1l2iu3019u2oehj1987askjh3q98y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;일반-정보&quot;&gt;일반 정보&lt;/h3&gt;
+&lt;p&gt;정보성 헤더들.&lt;/p&gt;
+
+&lt;h4 id=&quot;from&quot;&gt;From&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;유저 에이전트의 이메일 정보.&lt;/li&gt;
+  &lt;li&gt;일반적으로 잘 사용되지는 않으나 검색엔진 같은데 주로 사용 (user agent의 이메일 정보). 요청에서 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;referer&quot;&gt;Referer&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;이전 웹 사이트의 주소. 많이 사용한다.&lt;/li&gt;
+  &lt;li&gt;현재 요청된 페이지의 이전 웹 페이지 주소&lt;/li&gt;
+  &lt;li&gt;A -&amp;gt; B로 이동하는 경우 B를 요청할 때 Referer: A를 포함해서 요청한다.&lt;/li&gt;
+  &lt;li&gt;유입 경로 분석이 가능. 어느 사이트를 통해 들어왔는지 분석할 때&lt;/li&gt;
+  &lt;li&gt;요청에서 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;user-agent&quot;&gt;User-Agent&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;유저 에이전트 애플리케이션 정보&lt;/li&gt;
+  &lt;li&gt;클라이언트의 애플리케이션 정보(내 웹 브라우저 정보 등)&lt;/li&gt;
+  &lt;li&gt;서버 입장에서 도움이 된다. 특정 브라우저에서 오류가 생기는지 파악하기 위함&lt;/li&gt;
+  &lt;li&gt;요청에서 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;server&quot;&gt;Server&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;요청을 처리하는 ORIGIN 서버의 소프트웨어 정보&lt;/li&gt;
+  &lt;li&gt;HTTP : 중간에 여러 프록시 서버를 거치게 된다. HTTP 응답을 진짜 해주는 서버를 ORIGIN 서버라고 한다.&lt;/li&gt;
+  &lt;li&gt;응답에서 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;date&quot;&gt;Date&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;메시지가 발생한 날짜와 시간&lt;/li&gt;
+  &lt;li&gt;응답에 사용(과거에는 요청에서도 사용하긴 했지만 최신 스펙에서는 요청에서 사용한다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;특별한-정보&quot;&gt;특별한 정보&lt;/h3&gt;
+
+&lt;h4 id=&quot;host&quot;&gt;Host&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;정말 중요한 헤더! 요청에서 사용하는 필수 헤더이다.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;하나의 서버가 여러 도메인을 처리해야 할 때 구분하기 위해 사용한다.
+    &lt;ul&gt;
+      &lt;li&gt;200.200.200.2에 aaa, bbb, ccc 여러 도메인 존재&lt;/li&gt;
+      &lt;li&gt;서버 입장에서는 a, b, c 어디로 들어가야 할지 모른다&lt;/li&gt;
+      &lt;li&gt;host 정보로 aaa를 명시해주면 구분해서 들어갈 수 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;location&quot;&gt;Location&lt;/h4&gt;
+&lt;p&gt;페이지 리다이렉션&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;3xx 응답의 결과에 Location 헤더가 있으면 Location 위치로 자동 이동&lt;/li&gt;
+  &lt;li&gt;2xx 응답의 Location값은 요청에 의해 생성된 리소스의 위치를 의미&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;allow&quot;&gt;Allow&lt;/h4&gt;
+&lt;p&gt;허용 가능한 HTTP 메서드&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버가 Allow: GET, HEAD, PUT을 응답으로 보내주면, 클라이언트가 이 3개의 메서드만 지원한다고 파악하면 된다.
+    &lt;ul&gt;
+      &lt;li&gt;이 경우 POST는 지원을 안 한다고 보면 된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;서버에서 많이 구현되어 있지는 않다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;retry-after&quot;&gt;Retry-After&lt;/h4&gt;
+&lt;p&gt;유저 에이전트가 다음 요청을 할 때까지 기다려야 하는 기간&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;503 응답 : 서비스가 언제까지 불능인지 알려줄 수 있음&lt;/li&gt;
+  &lt;li&gt;날짜를 표기할 수도 있고, 초 단위로 표기할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;인증&quot;&gt;인증&lt;/h3&gt;
+
+&lt;h4 id=&quot;authorization&quot;&gt;Authorization&lt;/h4&gt;
+&lt;p&gt;클라이언트의 인증 정보를 서버에 전달. 인증 방식 마다 들어가는 값이 다르다.&lt;/p&gt;
+
+&lt;h4 id=&quot;www-authenticate&quot;&gt;WWW-Authenticate&lt;/h4&gt;
+&lt;p&gt;리소스 접근시 필요한 인증 방법 정의&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;접근을 했을 때 뭔가 인증이 안되면 401 Unauthorized 응답과 함께 사용한다.&lt;/li&gt;
+  &lt;li&gt;이러한 정보를 가지고 제대로 된 인증을 하라고 응답해준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;쿠키&quot;&gt;쿠키&lt;/h3&gt;
+&lt;p&gt;Set-Cookie, Cookie 두 개의 헤더 사용&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Set-Cookie : 서버에서 클라이언트로 쿠키 전달&lt;/li&gt;
+  &lt;li&gt;Cookie: 클라이언트가 서버에서 받은 쿠키를 저장하고, HTTP 요청시 서버로 전달&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;쿠키를 사용하지 않으면 클라이언트의 상태를 저장할 수 없다(HTTP는 stateless하므로)
+-&amp;gt; 그럼 모든 요청에 사용자 정보가 포함되도록 하면 안될까?
+-&amp;gt; 보안 문제, 모든 요청에 사용자 정보가 포함되도록 개발해야 함, 브라우저 종료 후 재시작 시 곤란하다&lt;/p&gt;
+
+&lt;p&gt;서버가 헤더에서 Set-Cookie를 통해 응답을 전달하면 쿠키 저장소에 쿠키를 저장한다.&lt;/p&gt;
+
+&lt;p&gt;클라이언트가 서버에게 요청을 할 때 Cookie 헤더가 있으면 쿠키를 찾아서 전달한다.&lt;/p&gt;
+
+&lt;p&gt;쿠키 설정 방법&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set-cookie: sessionId=abcde1234; expires=Sat, 26-Dec-2020 00:00:00 GMT; path=/; domain=.google.com; Secure
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;expires: 만기일&lt;/li&gt;
+  &lt;li&gt;path: 이 경로에 대해 쿠키 설정&lt;/li&gt;
+  &lt;li&gt;domain: 해당 도메인에 대한 쿠키 설정&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Secure: 쿠키에 보안정보 넣기&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;쿠키의 사용처: 사용자 로그인 세션 관리, 광고 정보 트래킹
+    &lt;ul&gt;
+      &lt;li&gt;보통 유저 정보를 통째로 저장하는게 아니라 세션키를 저장한다&lt;/li&gt;
+      &lt;li&gt;세션id가 있으면 유저 인식&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;쿠키는 항상 서버에 전송됨&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;네트워크 트래픽을 추가로 유발하므로, 최소한의 정보(세션id, 인증 토큰)만 사용해야 함&lt;/li&gt;
+      &lt;li&gt;서버에 전송하지 않고 클라이언트가 들고있는 용도로 사용할 경우 - 웹 스토리지(localStorage, sessionStorage) 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;보안에 민감한 데이터는 저장하지 말자&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;쿠키의-생명주기&quot;&gt;쿠키의 생명주기&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;expires : 만료일이 되면 쿠키 삭제(GMT 기준으로 입력해야 한다)&lt;/li&gt;
+  &lt;li&gt;max-age: 0이나 음수를 지정하면 쿠키 삭제&lt;/li&gt;
+  &lt;li&gt;세션 쿠키: 만료 날짜를 생략하면 브라우저 종료시 까지만 유지(웹 브라우저 열면 다시 로그인 해야 함)&lt;/li&gt;
+  &lt;li&gt;영속 쿠키: 만료 날짜를 입력하면 해당 날짜까지 유지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;domain&quot;&gt;domain&lt;/h4&gt;
+&lt;p&gt;쿠키에는 도메인 지정 가능&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;도메인 명시: 명시한 문서 기준 도메인 + 서브도메인 포함
+    &lt;ul&gt;
+      &lt;li&gt;domain=a.com 지정하면, dev.a.com도 접근이 가능하다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;도메인 생략: 현재 문서 기준 도메인만 적용
+    &lt;ul&gt;
+      &lt;li&gt;a.com에서만 접근, dev.a.com 접근 불가&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;경로path&quot;&gt;경로(path)&lt;/h4&gt;
+&lt;p&gt;도메인 안에 있는 경로로 필터링. 이 경로를 포함한 하위 경로 페이지만 쿠키 접근&lt;/p&gt;
+
+&lt;p&gt;일반적으로 path=/ (루트)로 지정.&lt;/p&gt;
+
+&lt;h4 id=&quot;쿠키와-관련된-보안&quot;&gt;쿠키와 관련된 보안&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Secure
+    &lt;ul&gt;
+      &lt;li&gt;쿠키는 http, https를 구분하지 않고 전송하는데, Secure를 적용하면 https인 경우에만 전송한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;HttpOnly
+    &lt;ul&gt;
+      &lt;li&gt;XSS공격 방지, 자바스크립트에서 접근 불가, HTTP 전송에서만 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;SameSite
+    &lt;ul&gt;
+      &lt;li&gt;XSRF 공격 방지, 요청하는 도메인과 쿠키에 설정된 도메인이 같은 경우만 쿠키 전송&lt;/li&gt;
+      &lt;li&gt;기능이 적용된 지 얼마 되지 않아 브라우저에서 얼마나 지원하는지 알아보아야 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">HTTP 인프런 HTTP 강의 수강</summary></entry><entry><title type="html">Today I Learned_220919</title><link href="http://localhost:4000/til/TIL_220919/" rel="alternate" type="text/html" title="Today I Learned_220919" /><published>2022-09-19T20:57:00+09:00</published><updated>2022-09-19T20:57:00+09:00</updated><id>http://localhost:4000/til/TIL_220919</id><content type="html" xml:base="http://localhost:4000/til/TIL_220919/">&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard&quot;&gt;인프런 HTTP 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http-상태코드&quot;&gt;HTTP 상태코드&lt;/h2&gt;
+&lt;p&gt;클라이언트가 보낸 요청의 처리 상태를 서버의 응답으로 알려주는 기능&lt;/p&gt;
+
+&lt;p&gt;요청이 잘 처리가 되었는지? 문제가 되었는지? - request가 아니라 response로 알려주는 기능&lt;/p&gt;
+
+&lt;p&gt;현존하는 상태코드가 아니라 미래에 새로운 상태코드가 생겨서 모르는 상태코드를 서버가 반환한다면?
+&lt;br /&gt;
+-&amp;gt; 클라이언트는 상위 상태코드로 해석해서 처리. 미래에 새로운 상태 코드가 추가되어도 클라이언트를 변경하지 않아도 됨&lt;/p&gt;
+
+&lt;p&gt;ex) 299 - 없는 상태코드이지만, 2xx이므로 Successful 처리를 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+1xx(Informational) : 요청이 수신되어 처리중 -&amp;gt; 잘 사용되지 않음&lt;/p&gt;
+
+&lt;h3 id=&quot;2xx---성공&quot;&gt;2xx - 성공&lt;/h3&gt;
+&lt;p&gt;Successful, 요청 정상 처리&lt;/p&gt;
+
+&lt;p&gt;클라이언트의 요청을 성공적으로 처리했다&lt;/p&gt;
+
+&lt;h4 id=&quot;200-ok&quot;&gt;200 OK&lt;/h4&gt;
+&lt;p&gt;클라이언트의 요청을 성공적으로 처리. 가장 많이 보는 케이스이다.&lt;/p&gt;
+
+&lt;p&gt;요청&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /members/100 HTTP/1.1
+Host: localhost:8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;응답&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 34
+{
+&quot;username&quot;: &quot;young&quot;,
+&quot;age&quot;: 20
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;201-created&quot;&gt;201 Created&lt;/h4&gt;
+&lt;p&gt;클라이언트가 요청을 한 것 가지고 서버에 리소스 생성. 주로 POST로 등록했을 때 준다&lt;/p&gt;
+
+&lt;p&gt;요청&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /members HTTP/1.1
+Content-Type: application/json
+{
+&quot;username&quot;: &quot;young&quot;,
+&quot;age&quot;: 20
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;요청에 생성할 리소스를 담아서 보냄 (POST -&amp;gt; 서버에서 자원을 생성)&lt;/p&gt;
+
+&lt;p&gt;응답&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 34
+Location: /members/100
+{
+&quot;username&quot;: &quot;young&quot;,
+&quot;age&quot;: 20
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;생성된 리소스는 응답의 Location 헤더 필드로 식별&lt;/p&gt;
+
+&lt;h4 id=&quot;202-accepted&quot;&gt;202 Accepted&lt;/h4&gt;
+&lt;p&gt;요청이 접수되었으나 처리가 완료되지 않음&lt;/p&gt;
+
+&lt;p&gt;배치 처리 같은 곳에서 사용&lt;/p&gt;
+
+&lt;p&gt;예) 요청 접수 후 1시간 뒤에 배치 프로세스가 요청을 처리함&lt;/p&gt;
+
+&lt;p&gt;잘 사용하지는 않음&lt;/p&gt;
+
+&lt;h4 id=&quot;204-no-content&quot;&gt;204 No Content&lt;/h4&gt;
+&lt;p&gt;서버가 요청을 성공적으로 수행했지만, 응답 페이로드 본문에 보낼 데이터가 없음&lt;/p&gt;
+
+&lt;p&gt;예) 웹 문서 편집기에서 save 버튼. 데이터가 POST로 서버에 넘어가지만 응답을 내려줄 게 없다
+&lt;br /&gt;
+save 버튼의 결과로 아무 내용이 없어도 되며, 버튼을 눌러도 같은 화면을 유지해야 하는 경우 사용
+&lt;br /&gt;
+결과 내용이 없어도 204 메시지만으로 성공을 인식할 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;3xx---리다이렉션&quot;&gt;3xx - 리다이렉션&lt;/h3&gt;
+&lt;p&gt;Redirection, 요청을 완료하려면 추가 행동이 필요. 주로 리다이렉트로 사용&lt;/p&gt;
+
+&lt;p&gt;요청을 완료하기 위해 유저 에이전트(클라이언트 프로그램, 주로 웹 브라우저)의 추가 조치 필요&lt;/p&gt;
+
+&lt;p&gt;웹 브라우저는 3xx 응답 결과에 Location 헤더가 있으면 Location 위치로 자동 이동한다. (사용자 입장에서는 빨라서 사용자는 인식을 잘 하지 못한다)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Status 코드&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;300 Multiple Choices (잘 사용하지 않음)&lt;/li&gt;
+  &lt;li&gt;301 Moved Permanently&lt;/li&gt;
+  &lt;li&gt;302 Found&lt;/li&gt;
+  &lt;li&gt;303 See Other&lt;/li&gt;
+  &lt;li&gt;304 Not Modified&lt;/li&gt;
+  &lt;li&gt;307 Temporary Redirect&lt;/li&gt;
+  &lt;li&gt;308 Permanent Redirect&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;리다이렉션의 종류&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;영구 리다이렉션 : 특정 리소스의 URI가 영구적으로 이동
+    &lt;ul&gt;
+      &lt;li&gt;주소가 아예 바뀜 (구 주소 -&amp;gt; 신 주소)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일시 리다이렉션 : 일시적인 변경
+    &lt;ul&gt;
+      &lt;li&gt;주문 완료 후 주문 내역 화면으로 이동&lt;/li&gt;
+      &lt;li&gt;PRG : POST/Redirect/GET&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;특수 리다이렉션 : 결과 대신 캐시를 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;영구-리다이렉션&quot;&gt;영구 리다이렉션&lt;/h4&gt;
+&lt;p&gt;301, 308&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리소스의 URI가 영구적으로 이동&lt;/li&gt;
+  &lt;li&gt;원래의 URL을 더 이상 사용하면 안 된다&lt;/li&gt;
+  &lt;li&gt;검색 엔진들도 변경을 인지할 수 있다 (A주소를 불렀는데 B주소가 나온다? B주소로 인지를 한다)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;301과 308 모두 기능은 비슷하다 -&amp;gt; 경로가 완전히 바뀌었다는 것을 알려줌&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;301 Moved Permanently
+    &lt;ul&gt;
+      &lt;li&gt;리다이렉트 시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있다 (거의 이렇게 된다)&lt;/li&gt;
+      &lt;li&gt;원래는 요청 메서드로 유지하는 것이 스펙이었지만, 대부분 위와 같이 구현되어 있기 때문에 위와 같은 스펙으로 변경&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;308 Permanent Redirect
+    &lt;ul&gt;
+      &lt;li&gt;301과 기능은 같다&lt;/li&gt;
+      &lt;li&gt;리다이렉트 시 요청 메서드와 본문이 유지된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사실상 URL이 변한다면 파라미터도 변하는 경우가 많으므로.. 일반적인 경우에는 301을 더 잘 활용한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;일시적인-리다이렉션&quot;&gt;일시적인 리다이렉션&lt;/h4&gt;
+&lt;p&gt;302, 307, 303&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;리소스의 URI가 일시적으로 변경(나중에 바뀌지 않을 수 있다)
+    &lt;ul&gt;
+      &lt;li&gt;처음엔 A 들어왔다가 나중에 B 들어갈 수도 있음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;영구적으로 변경되는 것이 아니기에, 검색 엔진 등에서 URL을 변경하면 안 된다.&lt;/li&gt;
+  &lt;li&gt;아래 3개는 기능 자체는 같다&lt;/li&gt;
+  &lt;li&gt;302 Found
+    &lt;ul&gt;
+      &lt;li&gt;리다이렉트 시 요청 메서드가 GET으로 변하고, 본문이 제거될 수 있다 (301이랑 같음!!)&lt;/li&gt;
+      &lt;li&gt;메서드라 변할 수 있고, 본문이 제거될 수 있지만 그러지 않을 수도 있다.&lt;/li&gt;
+      &lt;li&gt;301과 같이 원래 의도는 메소드를 유지하는 것이었으나.. 어느새 위와 같은 스펙으로 변경되었다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;307 Temporary Redirect
+    &lt;ul&gt;
+      &lt;li&gt;302와 기능은 같음&lt;/li&gt;
+      &lt;li&gt;리다이렉트 시 요청 메서드와 본문 &lt;strong&gt;유지&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;요청 메서드를 변경하면 안 된다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;303 See Other
+    &lt;ul&gt;
+      &lt;li&gt;302와 기능은 같음&lt;/li&gt;
+      &lt;li&gt;리다이렉트 시 요청 메서드가 &lt;strong&gt;GET으로 변경&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;무조건 GET으로 변경(명확하게 명시)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;실무에서는 대부분 302를 많이 사용한다.&lt;/p&gt;
+
+&lt;h4 id=&quot;prg--postredirectget&quot;&gt;PRG : Post/Redirect/Get&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Post/Redirect/Get&quot;&gt;PRG 패턴&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;일시적인 리다이렉션을 사용하는 예시&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;POST로 주문 후에 웹 브라우저를 새로고침하면? -&amp;gt; 다시 요청이 갈 수 있음 -&amp;gt; 중복 주문이 될 수 있다.&lt;/li&gt;
+  &lt;li&gt;아래와 같이 클라이언트 차원에서 방어가 가능 (물론 서버쪽에서도 막아야 한다)&lt;/li&gt;
+  &lt;li&gt;POST로 주문 후에 주문 결과 화면을 GET메서드로 리다이렉트&lt;/li&gt;
+  &lt;li&gt;새로고침해도 결과 화면을 GET으로 조회&lt;/li&gt;
+  &lt;li&gt;중복 주문 대신에 결과 화면만 GET으로 다시 요청&lt;/li&gt;
+  &lt;li&gt;PRG 이후 리다이렉트
+    &lt;ul&gt;
+      &lt;li&gt;URL이 이미 POST -&amp;gt; GET으로 리다이렉트됨&lt;/li&gt;
+      &lt;li&gt;새로고침해도 GET으로 결과 화면만 조회&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;이렇게 하면 사용성도 좋고, 서버 입장에서도 오류가 줄어든다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;정리&quot;&gt;정리&lt;/h4&gt;
+&lt;p&gt;처음 302의 의도는 HTTP메서드를 유지하는 것이었지만, 웹 브라우저들이 대부분 GET로 바꾸어버렸다&lt;/p&gt;
+
+&lt;p&gt;302의 스펙 자체가 모호해지자, 명확한 스펙인 307, 303이 등장했다.&lt;/p&gt;
+
+&lt;p&gt;302 : GET으로 변할 수 있음&lt;/p&gt;
+
+&lt;p&gt;307 : 메서드가 변하면 안 됨&lt;/p&gt;
+
+&lt;p&gt;303 : 메서드가 GET으로 변경&lt;/p&gt;
+
+&lt;p&gt;명확한 스펙인 307, 303을 권장하지만 현실적으로 많은 애플리케이션이 302 사용중&lt;/p&gt;
+
+&lt;p&gt;자동 리다이렉션 시 GET으로 변해도 되면 302를 사용해도 큰 문제가 없다.&lt;/p&gt;
+
+&lt;h4 id=&quot;기타-리다이렉션&quot;&gt;기타 리다이렉션&lt;/h4&gt;
+&lt;p&gt;300, 304&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;300 Multiple Choices : 안 쓴다.&lt;/li&gt;
+  &lt;li&gt;304 Not Modified : 정말 많이 쓴다
+    &lt;ul&gt;
+      &lt;li&gt;캐시, 조건부 요청 관련&lt;/li&gt;
+      &lt;li&gt;캐시를 목적으로 사용&lt;/li&gt;
+      &lt;li&gt;클라이언트에게 리소스가 수정되지 않았다는 것을 알려준다&lt;/li&gt;
+      &lt;li&gt;클라이언트 : 캐시가 만료된 것 같은데 다시 줘&lt;/li&gt;
+      &lt;li&gt;서버 : 캐시 써도 되니까 써&lt;/li&gt;
+      &lt;li&gt;캐시로 리다이렉트한다&lt;/li&gt;
+      &lt;li&gt;로컬 캐시를 사용해야 하므로 응답에 메시지 바디를 포함하면 안 된다&lt;/li&gt;
+      &lt;li&gt;조건부 GET, HEAD 요청시 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;4xx---클라이언트-오류&quot;&gt;4xx - 클라이언트 오류&lt;/h3&gt;
+&lt;p&gt;Client Error, &lt;strong&gt;클라이언트 오류&lt;/strong&gt;, 잘못된 문법 등으로 서버가 요청을 수행할 수 없음&lt;/p&gt;
+
+&lt;p&gt;클라이언트가 이미 잘못된 요청, 데이터를 보내고 있기 때문에, 재시도 할 경우 실패할 수 밖에 없다. -&amp;gt; 400대 오류와 500대 오류의 큰 차이점!&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;400 Bad Request : 클라이언트가 잘못된 요청을 해서 서버가 요청을 처리할 수 없음
+    &lt;ul&gt;
+      &lt;li&gt;요청 구문, 메시지 등등 오류&lt;/li&gt;
+      &lt;li&gt;클라이언트는 요청 내용을 다시 검토하고 보내야 함&lt;/li&gt;
+      &lt;li&gt;요청 파라미터가 잘못되거나 API 스펙이 맞지 않을 때, 숫자를 보내야 하는데 문자를 보냈을 때&lt;/li&gt;
+      &lt;li&gt;서버 개발자는 이것을 잘 판단해야 한다! (500 오류로 판단하지 않게끔 잘 막아야 함)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;401 Unauthorized : 클라이언트가 해당 리소스에 대한 인증이 필요함
+    &lt;ul&gt;
+      &lt;li&gt;인증되지 않음&lt;/li&gt;
+      &lt;li&gt;오류 발생 시 응답에 WWW-Authenticate 헤더와 함께 인증 방법을 설명&lt;/li&gt;
+      &lt;li&gt;인증(Authentication) : 본인이 누구인지 확인하는 것, 로그인&lt;/li&gt;
+      &lt;li&gt;인가(Authorization) : 권한부여. 특정 리소스에 접근할 수 있는 권한. 인증이 선행되어야 인가가 있을 수 있다.&lt;/li&gt;
+      &lt;li&gt;오류 메시지는 인가에 관한 내용이지만 오류는 인증의 문제&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;403 Forbidden : 서버가 요청을 이해했지만 승인을 거부함
+    &lt;ul&gt;
+      &lt;li&gt;주로 접근 권한이 불충분한 경우&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;404 Not Found : 요청 리소스를 찾을 수 없음
+    &lt;ul&gt;
+      &lt;li&gt;서버 입장에서는 이런 리소스가 없는데 찾으려고 한다&lt;/li&gt;
+      &lt;li&gt;요청 리소스가 서버에 없거나 클라이언트가 권한이 부족한 리소스에 접근할 때, 해당 리소스를 숨기고 싶을 때 사용(403 조차 내기 싫다)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5xx---서버-오류&quot;&gt;5xx - 서버 오류&lt;/h3&gt;
+&lt;p&gt;Server Error, &lt;strong&gt;서버 오류&lt;/strong&gt;, 서버가 정상 요청을 처리하지 못함 (데이터베이스 중단 등)&lt;/p&gt;
+
+&lt;p&gt;서버에 문제가 있기 때문에 재시도 하면 서버가 복구되어서 성공할 수 있음&lt;/p&gt;
+
+&lt;p&gt;비즈니스 상 오류랑 서버 오류를 잘 구분해야 한다! 비즈니스 오류가 아니라 진짜 서버 오류일 때 500 에러를 내야 한다.&lt;/p&gt;
+
+&lt;p&gt;나머지는 400 혹은 200으로 해결하도록 하자.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;500 Internal Server Error
+    &lt;ul&gt;
+      &lt;li&gt;서버 문제로 오류 발생&lt;/li&gt;
+      &lt;li&gt;애매하면 500 오류&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;503 Service Unavailable
+    &lt;ul&gt;
+      &lt;li&gt;서버가 일시적인 과부하 또는 예정된 작업으로 잠시 요청을 처리할 수 없음&lt;/li&gt;
+      &lt;li&gt;Retry-After 헤더 필드로 얼마뒤에 복구되는지 보낼 수 있음&lt;/li&gt;
+      &lt;li&gt;근데 언제 복구될지 아무로 모르므로..보통 500을 자주 보내준다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">HTTP 인프런 HTTP 강의 수강</summary></entry><entry><title type="html">Today I Learned_220915</title><link href="http://localhost:4000/til/TIL_220915/" rel="alternate" type="text/html" title="Today I Learned_220915" /><published>2022-09-15T22:20:00+09:00</published><updated>2022-09-15T22:20:00+09:00</updated><id>http://localhost:4000/til/TIL_220915</id><content type="html" xml:base="http://localhost:4000/til/TIL_220915/">&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard&quot;&gt;인프런 HTTP 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http-api-설계-예시&quot;&gt;HTTP API 설계 예시&lt;/h2&gt;
+&lt;p&gt;설계할 때 어떤 식으로 URI를 설계하는지?&lt;/p&gt;
+
+&lt;p&gt;GET/POST/PUT/DELETE를 어떻게 써야 하는지?&lt;/p&gt;
+
+&lt;p&gt;POST/PUT의 주요 특징들&lt;/p&gt;
+
+&lt;p&gt;리소스를 식별하는 것(URI) - 리소스를 식별해야지 다른 것을 식별하면 안 된다.&lt;/p&gt;
+
+&lt;p&gt;리소스는 행위가 아닌 자원! 행위는 메소드를 사용하면 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;회원-관리-시스템&quot;&gt;회원 관리 시스템&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;POST 기반 등록&lt;/strong&gt; -&amp;gt; 컬렉션&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;회원 목록 /members -&amp;gt; GET
+    &lt;ul&gt;
+      &lt;li&gt;멤버에 대한 데이터를 json으로 내려주자&lt;/li&gt;
+      &lt;li&gt;회원 수가 너무 많으면 검색 필터를 쿼리 스트링으로 넣어주자&lt;/li&gt;
+      &lt;li&gt;정렬 또한 쿼리 스트링으로&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;회원 등록 /members -&amp;gt; POST
+    &lt;ul&gt;
+      &lt;li&gt;이 컬렉션에다가 넣으면 된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;회원 조회 /members/{id} -&amp;gt; GET&lt;/li&gt;
+  &lt;li&gt;회원 수정 /members/{id} -&amp;gt; PATCH, PUT, POST
+    &lt;ul&gt;
+      &lt;li&gt;PUT은 기존거를 삭제하고 덮어버린다.&lt;/li&gt;
+      &lt;li&gt;PATCH : 부분적으로 수정 - 이거를 하는게 좋다&lt;/li&gt;
+      &lt;li&gt;웬만해서는 PATCH를 사용하지만, 게시글 수정같은 경우 PUT을 사용하기도 한다 - 완전히 대체하기 때문&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;회원 삭제 /members/{id} -&amp;gt; DELETE&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;POST를 사용해 신규 자원을 등록할 때의 특징&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;클라이언트는 등록될 리소스의 URI를 알 수 없다.&lt;/li&gt;
+  &lt;li&gt;/members를 통해 등록했는데, 이 members 리소스가 무엇?&lt;/li&gt;
+  &lt;li&gt;신규 리소스를 식별할 수 있는 URI는 클라이언트가 아니라 서버가 만들어준다.&lt;/li&gt;
+  &lt;li&gt;서버가 /members를 통해 회원을 생성하고, 100번 리소스란걸 만든다&lt;/li&gt;
+  &lt;li&gt;서버가 클라이언트에 응답할 때 리소스의 위치를 응답 메시지로 보내준다&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;서버에서 리소스 URI를 결정하고 만들어 준다.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;클라이언트가 서버에 요청하는 형태&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컬렉션(Collection) 형식&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버가 관리하는 리소스 디렉토리&lt;/li&gt;
+  &lt;li&gt;서버가 리소스의 URI를 생성하고 관리&lt;/li&gt;
+  &lt;li&gt;여기서 컬렉션은 /members 에 해당&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;파일-관리-시스템&quot;&gt;파일 관리 시스템&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;PUT 기반 등록&lt;/strong&gt; -&amp;gt; 스토어&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;파일 목록 /files -&amp;gt; GET
+    &lt;ul&gt;
+      &lt;li&gt;/files 하위에 있는 파일들이 다 나온다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파일 조회 /files/{filename} -&amp;gt; GET
+    &lt;ul&gt;
+      &lt;li&gt;개별 파일 조회&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파일 등록 /files/{filename} -&amp;gt; PUT
+    &lt;ul&gt;
+      &lt;li&gt;파일 이름은 클라이언트가 파일 이름을 알고 있음&lt;/li&gt;
+      &lt;li&gt;PUT은 기존걸 지우고 올림&lt;/li&gt;
+      &lt;li&gt;파일을 올릴 때는 기존 거를 지우고 올려야 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;파일 삭제 /files/{filename} -&amp;gt; DELETE&lt;/li&gt;
+  &lt;li&gt;파일 대량 등록 /files -&amp;gt; POST&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;PUT을 사용해 신규 자원을 등록할 때의 특징&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;클라이언트가 리소스의 URI를 알고 있어야 함&lt;/li&gt;
+  &lt;li&gt;클라이언트가 직접 리소스의 URI를 지정. 생성된 URI를 알고 관리를 한다.&lt;/li&gt;
+  &lt;li&gt;서버는 오는대로 관리해준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;스토어(Store) 형식&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;클라이언트가 관리하는 리소스 저장소&lt;/li&gt;
+  &lt;li&gt;클라이언트가 리소스의 URI를 알고 관리&lt;/li&gt;
+  &lt;li&gt;여기서 스토어는 /files 에 해당&lt;/li&gt;
+  &lt;li&gt;스토어 형식보다는 컬렉션 형식을 주로 많이 사용하긴 함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;html-form-사용&quot;&gt;HTML FORM 사용&lt;/h4&gt;
+&lt;p&gt;GET, POST만 지원하나, AJAX같은 기술을 사용해서 해결이 가능하긴 함&lt;/p&gt;
+
+&lt;p&gt;GET, POST만 지원하므로 제약이 크다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;회원 목록 /members -&amp;gt; GET&lt;/li&gt;
+  &lt;li&gt;회원 등록 폼 /members/new -&amp;gt; GET
+    &lt;ul&gt;
+      &lt;li&gt;폼을 불러올 때는 GET 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;회원 등록 /members/new, /members -&amp;gt; POST
+    &lt;ul&gt;
+      &lt;li&gt;저장을 누를 때 POST로 넘어가야 한다&lt;/li&gt;
+      &lt;li&gt;GET과 POST의 url을 맞출 수도 있지만, 컬렉션 자원을 관리하는 것 처럼 /members 로 지정해도 된다&lt;/li&gt;
+      &lt;li&gt;url 1:1 매칭시켜도 되고, 다른 url 사용해도 됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;회원 조회 /members/{id} -&amp;gt; GET&lt;/li&gt;
+  &lt;li&gt;회원 수정 폼 /members/{id}/edit -&amp;gt; GET
+    &lt;ul&gt;
+      &lt;li&gt;폼 자체를 보는 것은 변경이 일어나지 않음&lt;/li&gt;
+      &lt;li&gt;폼을 실제로 서버로 보낼 때 변경이 일어남&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;회원 수정 /members/{id}/edit, /members/{id} -&amp;gt; POST&lt;/li&gt;
+  &lt;li&gt;회원 삭제 /members/{id}/delete -&amp;gt; POST
+    &lt;ul&gt;
+      &lt;li&gt;DELETE 메소드를 사용할 수 없으므로 POST 사용해서 처리&lt;/li&gt;
+      &lt;li&gt;control uri 사용해야 함..&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컨트롤 URI(컨트롤러)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;GET/POST만 지원하므로 제약이 있음&lt;/li&gt;
+  &lt;li&gt;제약을 해결하기 위해 &lt;strong&gt;동사&lt;/strong&gt;로 된 리소스 경로 사용&lt;/li&gt;
+  &lt;li&gt;/new, /edit, /delete 등&lt;/li&gt;
+  &lt;li&gt;최대한 리소스 개념을 가지고 uri을 설계하되, 여의치 않은 경우 대체제로 컨트롤러 사용&lt;/li&gt;
+  &lt;li&gt;HTTP 메서드로 해결하기 애매한 경우 사용(HTTP API 포함)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;참고하면-좋은-uri-설계-개념&quot;&gt;참고하면 좋은 URI 설계 개념&lt;/h4&gt;
+
+&lt;p&gt;문서&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;단일 개념(파일 하나, 객체 인스턴스, 데이터베이스 row)&lt;/li&gt;
+  &lt;li&gt;/members/100, /files/star.jpg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컬렉션&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버가 관리하는 리소스 디렉터리&lt;/li&gt;
+  &lt;li&gt;클라이언트는 요청만 진행&lt;/li&gt;
+  &lt;li&gt;/members&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;스토어&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;클라이언트가 관리하는 자원 저장소&lt;/li&gt;
+  &lt;li&gt;/files&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;컨트롤러&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;문서, 컬렉션, 스토어로 해결하기 위한 추가 프로세스 실행&lt;/li&gt;
+  &lt;li&gt;HTTP API에 사용&lt;/li&gt;
+  &lt;li&gt;/members/{id}/delete&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;기준 - 리소스로 구분이 가능한지? (예 : 회원이면 member, 회원 관리할거니까 members)&lt;/p&gt;
+
+&lt;p&gt;리소스로 나눴으면 각 리소스를 찾을 수 있는 번호 같은 것을 붙여준다 (예 : members/{id})&lt;/p&gt;
+
+&lt;p&gt;그래도 해결이 안 되면 컨트롤러 사용&lt;/p&gt;
+
+&lt;p&gt;기본적으로 컬렉션/스토어 내에서 해결을 하되, 그래도 힘들면 컨트롤러를 사용하자.&lt;/p&gt;
+
+&lt;p&gt;참고 : https://restfulapi.net/resource-naming/&lt;/p&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">HTTP 인프런 HTTP 강의 수강</summary></entry><entry><title type="html">Today I Learned_220830</title><link href="http://localhost:4000/til/TIL_220830/" rel="alternate" type="text/html" title="Today I Learned_220830" /><published>2022-08-30T22:20:00+09:00</published><updated>2022-08-30T22:20:00+09:00</updated><id>http://localhost:4000/til/TIL_220830</id><content type="html" xml:base="http://localhost:4000/til/TIL_220830/">&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard&quot;&gt;인프런 HTTP 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http-메서드-활용&quot;&gt;HTTP 메서드 활용&lt;/h2&gt;
+&lt;p&gt;개발할 때 HTTP 메서드가 어떻게 활용되는가?&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;클라이언트에서 서버로 데이터 전송&lt;/li&gt;
+  &lt;li&gt;HTTP API 설계 예시&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;클라이언트에서-서버로-데이터-전송&quot;&gt;클라이언트에서 서버로 데이터 전송&lt;/h3&gt;
+&lt;p&gt;데이터 전달 방식&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;쿼리 스트링을 통한 데이터 전송
+    &lt;ol&gt;
+      &lt;li&gt;GET에 많이 사용&lt;/li&gt;
+      &lt;li&gt;주로 검색어, 게시판 리스트에 정렬 조건을 넣을 때 많이 사용&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;메시지 바디를 통한 데이터 전송
+    &lt;ol&gt;
+      &lt;li&gt;데이터를 클라이언트에서 서버로 전송&lt;/li&gt;
+      &lt;li&gt;POST, PUT, PATCH&lt;/li&gt;
+      &lt;li&gt;회원 가입, 상품 주문, 새로운 리소스 등록, 리소스 변경&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;클라이언트에서 서버로 데이터로 전송하는 것은 크게 네 가지 상황이 존재한다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;정적 데이터 조회&lt;/li&gt;
+  &lt;li&gt;동적 데이터 조회&lt;/li&gt;
+  &lt;li&gt;HTML Form을 통한 데이터 전송&lt;/li&gt;
+  &lt;li&gt;HTTP API를 통한 데이터 전송&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;정적-데이터-조회&quot;&gt;정적 데이터 조회&lt;/h4&gt;
+&lt;p&gt;클라이언트 -&amp;gt; 서버 request message&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /static/star.jpg HTTP/1.1
+Host: localhost:8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;서버 -&amp;gt; 클라이언트 response message&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 34012
+lkj123kljoiasudlkjaweioluywlnfdo912u34ljko98udjkla
+slkjdfl;qkawj9;o4ruawsldkal;skdjfa;ow9ejkl3123123
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;이미지, 정적 텍스트 문서를 조회하는 상황으로, 주로 GET을 사용한다.&lt;/li&gt;
+  &lt;li&gt;정적 데이터는 일반적으로 쿼리 스트링 없이 리소스 경로로 단순하게 조회가 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;동적-데이터-조회&quot;&gt;동적 데이터 조회&lt;/h4&gt;
+&lt;p&gt;클라이언트 -&amp;gt; 서버 request message&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /search?q=hello&amp;amp;hl=ko HTTP/1.1
+Host: www.google.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버에서 쿼리 스트링을 기반으로 정렬 필터를 하여 결과를 동적으로 생성&lt;/li&gt;
+  &lt;li&gt;주로 검색, 게시판 목록에서 정렬하거나 필터를 걸 때 사용&lt;/li&gt;
+  &lt;li&gt;조회 조건을 줄여주는 필터, 조회 결과를 정렬하는 정렬 조건에 주로 사용&lt;/li&gt;
+  &lt;li&gt;주로 GET 사용하며 쿼리 스트링을 사용해서 데이터를 전달함
+    &lt;ul&gt;
+      &lt;li&gt;GET도 body를 통해 데이터를 전달할 수 있으나, 지원하지 않는 서버가 있을 수 있기에 권장하지는 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;html-form을-통한-데이터-전송&quot;&gt;HTML Form을 통한 데이터 전송&lt;/h4&gt;
+&lt;p&gt;html form&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-HTML&quot;&gt;&amp;lt;form action=&quot;/save&quot; method=&quot;post&quot;&amp;gt;
+  &amp;lt;input type=&quot;text&quot; name=&quot;username&quot; /&amp;gt;
+  &amp;lt;input type=&quot;text&quot; name=&quot;age&quot; /&amp;gt;
+  &amp;lt;button type=&quot;submit&quot;&amp;gt;전송&amp;lt;/button&amp;gt;
+&amp;lt;/form&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;form의 submit을 누를 경우 웹 브라우저가 form의 데이터를 읽어서 http 메시지를 생성해 준다.&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /save HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+
+username=kim&amp;amp;age=20
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;content-type은 클라이언트와 서버가 약속되어 있으며, 웬만한 서버는 content-type을 파싱해서 쓸 수 있도록 되어 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;form 전송 시에도 get을 사용할 수는 있다.&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/members&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;get&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;age&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;전송&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 경우 웹 브라우저가 생성하는 Http 메시지는 아래와 같다&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /members?username=kim&amp;amp;age=20 HTTP/1.1
+Host: localhost:8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;body가 아니라 쿼리 스트링으로 값을 전달하는 것을 확인할 수 있다.&lt;/li&gt;
+  &lt;li&gt;url에 직접 입력해도 되지만, GET으로 전달하면 url 경로에 쿼리 스트링으로 전달한다.&lt;/li&gt;
+  &lt;li&gt;GET은 조회에서만 사용해야 하고, 리소스 변경이 발생하는 곳에 사용하면 안 된다 -&amp;gt; 조회할 때 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;multipart/form-data&lt;/strong&gt;
+주로 바이너리 데이터를 전송할 때 사용하는 인코딩 데이터.&lt;/p&gt;
+
+&lt;p&gt;메시지 바디에 넣는 데이터 형식. 텍스트와 바이트로 되어 있는 파일들을 같이 전송&lt;/p&gt;
+
+&lt;p&gt;웹 브라우저가 boundary를 만들어서 자동으로 자른다. 경계를 자기 마음대로 자른다.&lt;/p&gt;
+
+&lt;p&gt;여러개 멀티로 여러 타입에 대한 데이터를 보낼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;cf) 기본은 application/x-www-form-urlencoded -&amp;gt; 한글같은것이 들어가면 인코딩이 되어 넘어간다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /save HTTP/1.1
+Host: localhost:8080
+Content-Type: multipart/form-data; boundary=-----XXX
+Content-Length: 10457
+------XXX
+Content-Disposition: form-data; name=&quot;username&quot;
+kim
+------XXX
+Content-Disposition: form-data; name=&quot;age&quot;
+20
+------XXX
+Content-Disposition: form-data; name=&quot;file1&quot;; filename=&quot;intro.png&quot;
+Content-Type: image/png
+109238a9o0p3eqwokjasd09ou3oirjwoe9u34ouief...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;맨 마지막에는 – 가 붙는다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HTML Form 전송은 GET, POST만 지원한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;PUT, DELETE는 안된다!&lt;/p&gt;
+
+&lt;h4 id=&quot;http-api를-통한-데이터-전송&quot;&gt;HTTP API를 통한 데이터 전송&lt;/h4&gt;
+&lt;p&gt;웹 브라우저를 통한 것이 아니라 클라이언트에서 서버로 데이터를 바로 전송하는 것 -&amp;gt; request 메시지를 직접 만들어서 넘기면 된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /members HTTP/1.1
+Content-Type: application/json
+{
+&quot;username&quot;: &quot;young&quot;,
+&quot;age&quot;: 20
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;application/json : 데이터를 json 형태로 보내겠다는 뜻&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사용하는 곳&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버 - 서버
+    &lt;ul&gt;
+      &lt;li&gt;서버끼리 통신할 때는 html이 없기 때문&lt;/li&gt;
+      &lt;li&gt;기계끼리 통신하는 것&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;앱 클라이언트(iOS, AND)에서 서버로 전송할 때&lt;/li&gt;
+  &lt;li&gt;웹 클라이언트
+    &lt;ul&gt;
+      &lt;li&gt;HTML에서 form 전송 대신 javascript를 통한 통신에 사용 -&amp;gt; AJAX&lt;/li&gt;
+      &lt;li&gt;react, vue 등&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사용 가능한 요소&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;POST, PUT, PATCH : 메시지 바디를 통해 데이터 전송&lt;/li&gt;
+  &lt;li&gt;GET : 조회할 때는 쿼리 파라미터로 데이터 전달하는것이 좋다.&lt;/li&gt;
+  &lt;li&gt;Content-Type : application/json을 주로 사용 (사실상 표준)
+    &lt;ul&gt;
+      &lt;li&gt;json이 크기가 작고 이해하기 쉬우므로 사실상 표준이다.&lt;/li&gt;
+      &lt;li&gt;이외에도 text, xml, json 등이 존재한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">HTTP 인프런 HTTP 강의 수강</summary></entry><entry><title type="html">Today I Learned_220829</title><link href="http://localhost:4000/til/TIL_220829/" rel="alternate" type="text/html" title="Today I Learned_220829" /><published>2022-08-29T22:20:00+09:00</published><updated>2022-08-29T22:20:00+09:00</updated><id>http://localhost:4000/til/TIL_220829</id><content type="html" xml:base="http://localhost:4000/til/TIL_220829/">&lt;h1 id=&quot;http&quot;&gt;HTTP&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inflearn.com/course/http-%EC%9B%B9-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dashboard&quot;&gt;인프런 HTTP 강의 수강&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http-메서드&quot;&gt;HTTP 메서드&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTTP API 설계&lt;/li&gt;
+  &lt;li&gt;GET, POST&lt;/li&gt;
+  &lt;li&gt;PUT, PATCH, DELETE&lt;/li&gt;
+  &lt;li&gt;HTTP 메서드의 속성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;http-api-설계&quot;&gt;HTTP API 설계&lt;/h3&gt;
+&lt;h4 id=&quot;api-uri-설계&quot;&gt;API URI 설계&lt;/h4&gt;
+&lt;p&gt;리소스 식별 -&amp;gt; 가장 중요함&lt;/p&gt;
+
+&lt;p&gt;행위 자체가 리소스가 될 수는 없다.&lt;/p&gt;
+
+&lt;p&gt;예시 : 회원 조회 기능 -&amp;gt; 리소스는 &lt;strong&gt;회원을 조회하는 기능&lt;/strong&gt;이 아니라 &lt;strong&gt;회원 그 자체&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;리소스를 url에 매핑하자&lt;/p&gt;
+
+&lt;p&gt;행위에 기반한 URI 설계 -&amp;gt; 리소스 기반 URI 설계&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;회원 목록 조회 /read-member-list -&amp;gt; /members (계층 구조상 상위를 컬렉션으로 보고 복수 단어 사용 권장)&lt;/li&gt;
+  &lt;li&gt;회원 조회 /read-member-by-id -&amp;gt; /members/{id}&lt;/li&gt;
+  &lt;li&gt;회원 등록 /create-member -&amp;gt; /members/{id}&lt;/li&gt;
+  &lt;li&gt;회원 수정 /update-member -&amp;gt; /members/{id}&lt;/li&gt;
+  &lt;li&gt;회원 삭제 /delete-member -&amp;gt; /members/{id}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;-&amp;gt; 조회, 등록, 수정, 삭제가 구분되지 않는다. 이는 메서드를 사용하여 구분하자.&lt;/p&gt;
+
+&lt;h4 id=&quot;리소스와-행위의-분리&quot;&gt;리소스와 행위의 분리&lt;/h4&gt;
+&lt;p&gt;URI는 리소스만 식별한다.&lt;/p&gt;
+
+&lt;p&gt;리소스(회원)와 해당 리소스를 대상으로 하는 행위(조회, 등록, 수정, 삭제)를 분리하자.&lt;/p&gt;
+
+&lt;p&gt;리소스는 명사, 행위는 동사&lt;/p&gt;
+
+&lt;p&gt;행위는 메서드를 통해 구분하자. 그러므로 URI의 리소스만 식별하자.&lt;/p&gt;
+
+&lt;h3 id=&quot;http-메서드-종류&quot;&gt;HTTP 메서드 종류&lt;/h3&gt;
+&lt;p&gt;HTTP 메서드 : 클라이언트가 서버에 요청을 할 때 기대하는 행동&lt;/p&gt;
+
+&lt;p&gt;[주요 메서드]&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;GET : 리소스 조회(요청)&lt;/li&gt;
+  &lt;li&gt;POST : 요청 데이터 처리, 주로 등록에 사용. 무조건 클라이언트에 데이터를 담아서 서버로 보내야 한다.&lt;/li&gt;
+  &lt;li&gt;PUT : 클라이언트에서 서버로 리소스를 보낸다. 리소스를 대체하며, 해당 리소스가 없다면 생성&lt;/li&gt;
+  &lt;li&gt;PATCH : 리소스 부분 변경(특정 필드를 몇 개 바꿀 때)&lt;/li&gt;
+  &lt;li&gt;DELETE : 리소스 삭제
+-&amp;gt; 최근 스펙에는 리소스가 아니라 representation으로 바뀌었다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[기타 메서드]&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;HEAD : GET과 동일하나 body 제외하고 상태 줄과 헤더 부분만 반환&lt;/li&gt;
+  &lt;li&gt;OPTIONS : CORS에서 주로 사용한다. 대상 리소스에 대한 통신 가능 옵션(메서드)을 설명&lt;/li&gt;
+  &lt;li&gt;CONNECT : 대상 자원으로 식별되는 서버에 대한 터널을 설정 (거의 사용하지 않음)&lt;/li&gt;
+  &lt;li&gt;TRACE : 대상 리소스에 대한 경로를 따라 메시지 루프백 테스트 수행 (거의 사용하지 않음)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;get&quot;&gt;GET&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GET /search?q=hello&amp;amp;hl=ko HTTP/1.1
+Host: www.google.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;리소스 조회 메서드. 해당 path에 있는 자원을 달라는 말&lt;/li&gt;
+  &lt;li&gt;서버에 전달하고 싶은 데이터는 query(쿼리 스트링, 쿼리 파라미터)를 통해서 전달&lt;/li&gt;
+  &lt;li&gt;body를 이용해 데이터를 전달할 수 있지만(최근 스펙), 지원하지 않는 곳이 많아서 권장하지 않는다 -&amp;gt; 필요한 경우 쿼리스트링 사용해서 데이터 보낸다.&lt;/li&gt;
+  &lt;li&gt;요청을 받으면 데이터를 만들어서 JSON 등으로 응답 데이터를 만들어서 클라이언트로 보낸다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;post&quot;&gt;POST&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;POST /members HTTP/1.1
+Content-Type: application/json
+{
+&quot;username&quot;: &quot;hello&quot;,
+&quot;age&quot;: 20
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;요청 데이터 처리해달라고 클라이언트가 서버에게 전달&lt;/li&gt;
+  &lt;li&gt;메시지 바디를 통해 서버로 요청 데이터 전달&lt;/li&gt;
+  &lt;li&gt;서버는 요청 데이터를 받아서 처리&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;신규 리소스 등록, 프로세스 처리에 사용&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;POST의 정식 스펙 : 대상 리소스가 리소스의 고유한 의미 체계에 따라 요청에 포함된 표현을 처리하도록 요청&lt;/li&gt;
+  &lt;li&gt;POST가 사용되는 예시
+    &lt;ul&gt;
+      &lt;li&gt;HTML의 form에서 회원가입하거나 주문 같은 것을 처리&lt;/li&gt;
+      &lt;li&gt;게시판에 글 쓰기, 댓글 달기 등&lt;/li&gt;
+      &lt;li&gt;서버가 아직 식별하지 않은 새 리소스 생성&lt;/li&gt;
+      &lt;li&gt;기존 자원의 끝에 데이터 추가&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;핵심 : 리소스 URI에 POST 요청이 오면 리소스마다 요청 데이터를 어떻게 처리할지 따로 정해야 함 -&amp;gt; 정해진 것이 없다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;POST가 사용되는 곳 정리&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;서버가 아직 식별하지 않은 새 리소스를 생성하고 등록하는데 사용&lt;/li&gt;
+  &lt;li&gt;요청 데이터를 처리하는데 사용
+    &lt;ol&gt;
+      &lt;li&gt;서버에서 프로세스를 처리해야 하는 경우(값 변경을 넘어서 프로세스의 상태가 변경되는 경우, 서버에서 큰 변화가 일어날 경우)&lt;/li&gt;
+      &lt;li&gt;POST의 결과로 새로운 리소스가 생성되지 않을 수도 있음 - 리소스로 URI가 정의되지 않을 수 있음(컨트롤 URI)&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;다른 메서드로 처리하기 애매한 경우
+    &lt;ol&gt;
+      &lt;li&gt;쿼리 파라미터 말고 다른 수단으로 조회 데이터를 넘겨야 하는 경우&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;사실 POST로 모든 것을 할 수 있긴 하다. 하지만 그래도 조회의 경우, GET을 사용하는 것이 유리하다. -&amp;gt; GET을 사용할 경우 캐싱이 이루어지지만, POST는 캐싱이 어려워짐&lt;/p&gt;
+
+&lt;h4 id=&quot;put&quot;&gt;PUT&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PUT /members/100 HTTP/1.1
+Content-Type: application/json
+{
+&quot;username&quot;: &quot;hello&quot;,
+&quot;age&quot;: 20
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;리소스를 대체. 없으면 생성한다 (폴더에 파일을 생성/복사하는 것과 유사) -&amp;gt; 완전히 대체한다. 기존거를 완전히 덮어버린다.
+    &lt;ul&gt;
+      &lt;li&gt;완전히 대체 : 기존 데이터의 필드가 A와 B가 있는 상황. 새로운 리소스가 C 필드만 있다면 C 필드만 남는 형식으로 대체.&lt;/li&gt;
+      &lt;li&gt;기존 리소스를 삭제하고 완전히 덮어버린다 -&amp;gt; 따라서 PUT은 리소스 수정에 적합하지 않다&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;클라이언트가 구체적인 리소스의 위치를 알고 URL을 지정한다
+    &lt;ul&gt;
+      &lt;li&gt;POST에서는 POST /members HTTP/1.1 와 같이 지정 -&amp;gt; POST에서는 어느 경로에 생성이 될지 모름&lt;/li&gt;
+      &lt;li&gt;PUT의 경우 /members/100 여기에 직접 생성 -&amp;gt; 클라이언트가 리소스의 위치를 알아야 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;patch&quot;&gt;PATCH&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;PATCH /members/100 HTTP/1.1
+Content-Type: application/json
+{
+&quot;age&quot;: 50
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;PUT은 리소스의 변경이 어려움 -&amp;gt; PATCH 사용
+    &lt;ul&gt;
+      &lt;li&gt;예전에는 PUT만 있다가 PATCH가 새로 나왔다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;부분적으로 리소스의 데이터를 변경하고 싶을 때 사용&lt;/li&gt;
+  &lt;li&gt;PATCH가 지원이 되지 않는 서버의 경우 POST를 사용해야 할 듯..&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;delete&quot;&gt;DELETE&lt;/h4&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DELETE /members/100 HTTP/1.1
+Host: localhost:8080
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;리소스 제거&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;http-메서드의-속성&quot;&gt;HTTP 메서드의 속성&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;안전(Sate Methods)&lt;/li&gt;
+  &lt;li&gt;멱등(Idempotent Methods)&lt;/li&gt;
+  &lt;li&gt;캐시 가능(Cacheable Methods)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/posts/2022-08-29-TIL_220829/Screen Shot 2022-08-29 at 10.30.07 PM.png&quot; alt=&quot;HTTP 메서드별 속성&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;GET은 요청에 Body를 넣을 수 있지만, 되는 곳이 있고 안 되는 곳이 있으므로 사용하지 않는 것이 좋다.&lt;/p&gt;
+
+&lt;h4 id=&quot;안전safe&quot;&gt;안전(Safe)&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;호출해도 리소스를 변경하지 않는다
+    &lt;ul&gt;
+      &lt;li&gt;GET은 단순히 조회만 하므로 안전하다.&lt;/li&gt;
+      &lt;li&gt;POST, DELETE, PUT, PATCH는 호출했을 때 변경이 일어나므로 안전하지 않다.&lt;/li&gt;
+      &lt;li&gt;안전은 해당 리소스가 변하는지 변하지 않는지만 고려 - 로그 쌓여서 나는 장애 같은거는 고려하지 않음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;멱등idempotent-methods&quot;&gt;멱등(Idempotent Methods)&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;f(f(x)) = f(x)&lt;/li&gt;
+  &lt;li&gt;한 번 호출하든 두 번 호출하든 100번 호출하든 결과가 똑같다&lt;/li&gt;
+  &lt;li&gt;멱등 메서드
+    &lt;ul&gt;
+      &lt;li&gt;GET : 멱등. 몇 번 조회하든 결과가 같음.&lt;/li&gt;
+      &lt;li&gt;PUT : 멱등. 결과를 대체하기에(기존걸 날리고 완전히 덮어버리기 때문) 같은 요청을 여러번 해도 결과는 같다.&lt;/li&gt;
+      &lt;li&gt;DELETE : 멱등. 그냥 날려버리니까 같은 요청을 여러번 해도 삭제된 결과는 같다. 두 번 호출해도 삭제된 상태로 남아있기 때문에&lt;/li&gt;
+      &lt;li&gt;POST : &lt;strong&gt;멱등 아님!&lt;/strong&gt; 두 번 호출하면 두 번의 다른 액션이 취해지기 때문&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;멱등의 활용성
+    &lt;ul&gt;
+      &lt;li&gt;자동 복구 메커니즘 -&amp;gt; 서버가 정상 응답을 주지 못했을 때, 클라이언트가 같은 요청을 다시 해도 되는지 판단의 근거로&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;재요청 중간에 다른 곳에서 리소스를 변경해버려서 결과값이 변경될 경우?
+    &lt;ul&gt;
+      &lt;li&gt;멱등은 외부 요인으로 중간에 리소스가 변경되는 것 까지는 고려하지 않는다.&lt;/li&gt;
+      &lt;li&gt;동일한 사용자가 같은 요청을 했을 때 멱등한지만 판단한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;캐시-가능cacheable-methods&quot;&gt;캐시 가능(Cacheable Methods)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;응답 결과 리소스를 캐시해서 사용해도 되는가?&lt;/li&gt;
+  &lt;li&gt;GET, HEAD, POST, PATCH -&amp;gt; 캐시 가능&lt;/li&gt;
+  &lt;li&gt;웹 브라우저 등에 리소스를 저장할 수 있는지?&lt;/li&gt;
+  &lt;li&gt;실제로는 GET, HEAD 정도만 캐시로 사용&lt;/li&gt;
+  &lt;li&gt;캐시를 하려면 똑같은 리소스랑 키가 맞아야 함 - POST와 PATCH는 본문 내용까지 캐시 키를 고려해야 하는데(맞아야 하는데) 구현이 쉽지 않다. -&amp;gt; 실무에서는 GET만 캐시로 사용하는 편&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>HeeJung Kang</name><email>tentasys@gmail.com</email></author><category term="TIL" /><summary type="html">HTTP 인프런 HTTP 강의 수강</summary></entry></feed>

@@ -1,0 +1,829 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>BOJ 4949. 균형잡힌 세상 - 테르의 개발 일기장</title>
+<meta name="description" content="1. 문제">
+
+
+  <meta name="author" content="HeeJung Kang">
+  
+  <meta property="article:author" content="HeeJung Kang">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="테르의 개발 일기장">
+<meta property="og:title" content="BOJ 4949. 균형잡힌 세상">
+<meta property="og:url" content="http://localhost:4000/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Algorithm_00/">
+
+
+  <meta property="og:description" content="1. 문제">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-03T19:52:03+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Algorithm_00/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Teirdarn Linkaden",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="테르의 개발 일기장 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          테르의 개발 일기장
+          <span class="site-subtitle">Junior Web Developer</span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/img/profile.png" alt="HeeJung Kang" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">HeeJung Kang</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>하루하루 조금씩 열심히.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:tentasys@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:tentasys@gmail.com">
+            <meta itemprop="email" content="tentasys@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="BOJ 4949. 균형잡힌 세상">
+    <meta itemprop="description" content="1. 문제">
+    <meta itemprop="datePublished" content="2021-08-03T19:52:03+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">BOJ 4949. 균형잡힌 세상
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="1-문제">1. 문제</h2>
+
+<p><a href="https://www.acmicpc.net/problem/4949">4949번: 균형잡힌 세상</a></p>
+
+<p>소괄호 또는 대괄호의 짝을 찾아주는 문제.</p>
+
+<h2 id="2-개념-및-기술">2. 개념 및 기술</h2>
+
+<h3 id="주요-개념">주요 개념</h3>
+
+<p>Stack</p>
+
+<p>자료구조의 일종으로, Last In First Out의 성질을 띄고 있는 자료구조이다.</p>
+
+<h3 id="기타-요소">기타 요소</h3>
+
+<p>StringBuilder</p>
+
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html">https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html</a></p>
+
+<p>System.out.println을 통해 계속해서 출력하게 되면 성능 저하가 있을 수 있으므로, StringBuilder를 이용하여 한번에 출력하도록 하였다.</p>
+
+<p>String.toCharArray();</p>
+
+<p><a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html">https://docs.oracle.com/javase/7/docs/api/java/lang/String.html</a></p>
+
+<p>문자열을 String 자체로 비교하면 compare시 느릴 것이라 생각했고, String보다 배열로 데이터를 다루는 것이 훨씬 직관적이므로 String을 char형 array로 바꿔 사용할 때 사용했던 메소드이다. 알고리즘 문제를 풀 때 종종 사용하는 메소드.</p>
+
+<h2 id="3-풀이-과정">3. 풀이 과정</h2>
+
+<h3 id="1차-풀이과정">1차 풀이과정</h3>
+
+<p>배열 및 인덱스를 사용하여 접근</p>
+
+<ul>
+  <li>여는 소괄호, 여는 대괄호, 닫는 소괄호, 닫는 대괄호가 있는 위치를 각각 담은 인덱스 배열을 통해 관리</li>
+  <li>여는 소괄호의 낮은 인덱스를 닫는 소괄호의 높은 인덱스에 매칭시키려고 함
+ex) 여는 소괄호 : 0, 3 / 닫는 소괄호 : 7, 12에 있다면, 0과 12를 매칭하고 3과 7을 매칭</li>
+</ul>
+
+<p>→ 이렇게 진행하면, (문자[예시]인[문자]에요) 와 같은 케이스를 해결할 수 없다 → 배열이 아닌 다른 방법 탐색</p>
+
+<h3 id="2차-풀이과정">2차 풀이과정</h3>
+
+<p>Stack을 이용한 접근</p>
+
+<ul>
+  <li>문자열 배열을 처음부터 끝까지 탐색</li>
+  <li>여는 괄호를 만날 경우 Stack에 push</li>
+  <li>닫는 괄호를 만날 경우 Stack에서 pop → pop 결과에 따라 동작을 다르게
+    <ul>
+      <li>빈 Stack에서 pop을 시도 → 틀린 문자열이므로 break</li>
+      <li>pop을 하였지만 닫는 괄호와 짝이 맞지 않음 → 틀린 문자열이므로 break</li>
+      <li>pop을 해서 얻은 여는 괄호와 닫는 괄호의 짝이 맞음 → 계속 진행</li>
+    </ul>
+  </li>
+  <li>
+    <p>끝까지 진행했을때 flag가 true이면 yes 출력</p>
+  </li>
+  <li>
+    <p>위 내용을 바탕으로 작성한 코드</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+  <span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+  	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+  		<span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+  		<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+  		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+  		<span class="o">{</span>
+  			<span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+  			<span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="s">"."</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+  				<span class="k">break</span><span class="o">;</span>
+    			
+  			<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+  			<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;();</span>
+    			
+  			<span class="kt">char</span> <span class="n">arr</span><span class="o">[]</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+    			
+  			<span class="k">for</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">arr</span><span class="o">)</span>
+  			<span class="o">{</span>
+  				<span class="k">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'('</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'['</span><span class="o">)</span>
+  					<span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+  				<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">')'</span><span class="o">)</span>
+  				<span class="o">{</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">!=</span> <span class="sc">'('</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  				<span class="o">}</span>
+  				<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">']'</span><span class="o">)</span>
+  				<span class="o">{</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">!=</span> <span class="sc">'['</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  				<span class="o">}</span>
+  			<span class="o">}</span>
+    			
+  			<span class="k">if</span><span class="o">(</span><span class="n">result</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>	<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"yes\n"</span><span class="o">);</span>
+  			<span class="k">else</span>				<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"no\n"</span><span class="o">);</span>
+  		<span class="o">}</span>
+    		
+  		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  	<span class="o">}</span>
+
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>하지만 20%에서 틀렸습니다가 나왔다.</p>
+
+<p>이는 아래의 요소를 고려하지 않았기 때문.</p>
+
+<h3 id="최종-풀이과정">최종 풀이과정</h3>
+
+<p>Stack에 데이터가 남아 있을 때의 예외처리
+반례 케이스
+input : (
+output : yes(no가 되어야 함)</p>
+
+<p>위 로직은 <strong>닫는 괄호 기준</strong>으로, 닫는 괄호에 맞는 여는 괄호가 있는지 검사하는 것이었다.</p>
+
+<p>즉, 닫는 괄호의 짝이 맞지 않으면 false를 return하였지만, 여는 괄호의 짝이 맞지 않으면 true를 리턴했던 것.</p>
+
+<p>이에 종료 시점에 stack에 데이터가 있는지 최종적으로 검사하고, 데이터가 있으면 no를 출력하도록 하였다.</p>
+
+<h2 id="4-답안-및-결과">4. 답안 및 결과</h2>
+
+<ul>
+  <li>
+    <p>제출 결과</p>
+
+    <p><img src="/assets/img/posts/2021-08-03-Algorithm_00-01.png" alt="/assets/img/posts/2021-08-03-Algorithm_00-01.png" /></p>
+  </li>
+  <li>
+    <p>코드</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">java.io.*</span><span class="o">;</span>
+  <span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+
+  	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span><span class="o">{</span>
+  		<span class="nc">BufferedReader</span> <span class="n">br</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">));</span>
+  		<span class="nc">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">StringBuilder</span><span class="o">();</span>
+  		<span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+  		<span class="o">{</span>
+  			<span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="n">br</span><span class="o">.</span><span class="na">readLine</span><span class="o">();</span>
+  			<span class="k">if</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="s">"."</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+  				<span class="k">break</span><span class="o">;</span>
+    			
+  			<span class="kt">boolean</span> <span class="n">result</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+  			<span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;</span> <span class="n">stack</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Stack</span><span class="o">&lt;</span><span class="nc">Character</span><span class="o">&gt;();</span>
+    			
+  			<span class="kt">char</span> <span class="n">arr</span><span class="o">[]</span> <span class="o">=</span> <span class="n">str</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+    			
+  			<span class="k">for</span><span class="o">(</span><span class="kt">char</span> <span class="n">c</span> <span class="o">:</span> <span class="n">arr</span><span class="o">)</span>
+  			<span class="o">{</span>
+  				<span class="k">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">'('</span> <span class="o">||</span> <span class="n">c</span> <span class="o">==</span> <span class="sc">'['</span><span class="o">)</span>
+  					<span class="n">stack</span><span class="o">.</span><span class="na">push</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+  				<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">')'</span><span class="o">)</span>
+  				<span class="o">{</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">!=</span> <span class="sc">'('</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  				<span class="o">}</span>
+  				<span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">c</span> <span class="o">==</span> <span class="sc">']'</span><span class="o">)</span>
+  				<span class="o">{</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  					<span class="k">if</span><span class="o">(</span><span class="n">stack</span><span class="o">.</span><span class="na">pop</span><span class="o">()</span> <span class="o">!=</span> <span class="sc">'['</span><span class="o">)</span>
+  					<span class="o">{</span>
+  						<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  						<span class="k">break</span><span class="o">;</span>
+  					<span class="o">}</span>
+  				<span class="o">}</span>
+  			<span class="o">}</span>
+    			
+  			<span class="c1">//2차 시도에는 이 한 줄이 빠져서 틀렸었다.</span>
+  			<span class="k">if</span><span class="o">(!</span><span class="n">stack</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span>	<span class="n">result</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> 
+    			
+  			<span class="k">if</span><span class="o">(</span><span class="n">result</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span>	<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"yes\n"</span><span class="o">);</span>
+  			<span class="k">else</span>				<span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"no\n"</span><span class="o">);</span>
+  		<span class="o">}</span>
+    		
+  		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+  	<span class="o">}</span>
+
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" class="page__taxonomy-item" rel="tag">알고리즘</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2021-08-03T19:52:03+09:00">August 3, 2021</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=BOJ+4949.+%EA%B7%A0%ED%98%95%EC%9E%A1%ED%9E%8C+%EC%84%B8%EC%83%81%20http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598%2FAlgorithm_00%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598%2FAlgorithm_00%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EC%2595%258C%25EA%25B3%25A0%25EB%25A6%25AC%25EC%25A6%2598%2FAlgorithm_00%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/github/pages/Github_Page_00/" class="pagination--pager" title="Github Pages 삽질기_01
+">이전</a>
+    
+    
+      <a href="/til/TIL_220131/" class="pagination--pager" title="Today I Learned_220131
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230119/" rel="permalink">Today I Learned_230119
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230116/" rel="permalink">Today I Learned_230116
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221226/" rel="permalink">Today I Learned_221226
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221219/" rel="permalink">Today I Learned_221219
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Teirdarn Linkaden. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

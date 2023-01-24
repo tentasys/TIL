@@ -1,0 +1,811 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Today I Learned_230119 - 테르의 개발 일기장</title>
+<meta name="description" content="TypeScript 인프런 타입스크립트 강의 수강">
+
+
+  <meta name="author" content="HeeJung Kang">
+  
+  <meta property="article:author" content="HeeJung Kang">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="테르의 개발 일기장">
+<meta property="og:title" content="Today I Learned_230119">
+<meta property="og:url" content="http://localhost:4000/til/TIL_230119/">
+
+
+  <meta property="og:description" content="TypeScript 인프런 타입스크립트 강의 수강">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-19T21:19:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/TIL_230119/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Teirdarn Linkaden",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="테르의 개발 일기장 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          테르의 개발 일기장
+          <span class="site-subtitle">Junior Web Developer</span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/img/profile.png" alt="HeeJung Kang" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">HeeJung Kang</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>하루하루 조금씩 열심히.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:tentasys@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:tentasys@gmail.com">
+            <meta itemprop="email" content="tentasys@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Today I Learned_230119">
+    <meta itemprop="description" content="TypeScript인프런 타입스크립트 강의 수강">
+    <meta itemprop="datePublished" content="2023-01-19T21:19:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Today I Learned_230119
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="typescript">TypeScript</h1>
+<p><a href="https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%98%AC%EC%9D%B8%EC%9B%90-1/dashboard">인프런 타입스크립트 강의 수강</a></p>
+
+<h2 id="타입-추론">타입 추론</h2>
+
+<p>IDE는 tsc -noemit을 계속 돌리고 있음</p>
+
+<p>타입을 추론해주는 역할을 계속한다</p>
+
+<p>IDE에 손을 올렸을때 타입을 제대로 추론한다 → 제대로 쓴 것</p>
+
+<ul>
+  <li>특수한 타입 {} (null과 undefined가 아닌 모든 타입)</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">z</span><span class="p">:</span> <span class="p">{}</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>ts가 추론해주는 타입이 있는데 이런 건 그냥 그대로 사용하면 됨. ts가 추론하지 못하는 경우에만 직접 타이핑할 것.</li>
+  <li>추론을 잘못했을 때 고치는 것이 낫다. 우선 ts를 믿어보자</li>
+  <li>any로 추론할 때 → 타입을 명시해 주자</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">b2</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span> <span class="c1">// const라서 3으로 변하지 않을텐데 구태여 string으로 변환한 꼴이 되는 것</span>
+<span class="c1">//따라서 그냥 그대로 사용하는게 좋다. '3'이라는 정확한 타입이 있는데 string이라는 더 넓은 부정확한 타입이 되는 것</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+
+<span class="c1">//x도 number고 y도 number -&gt; return값을 자동으로 number로 추론해 준다.</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.40.31.png" alt="스크린샷 2023-01-19 오후 8.40.31.png" /></p>
+
+<p>타입 추론을 했을 때 이렇게 any가 나오면 잘못된 것이다. 타입 추론을 했을 때 타입이 나오도록 고치자.</p>
+
+<p><img src="/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.41.16.png" alt="스크린샷 2023-01-19 오후 8.41.16.png" /></p>
+
+<p>이렇게 나오는게 좋다!</p>
+
+<p>최대한 타입스크립트가 추론해주는 것을 믿어라!</p>
+
+<p><img src="/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.42.37.png" alt="스크린샷 2023-01-19 오후 8.42.37.png" /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>를 파이프라고 함 → 이렇게 되면 타입스크립트가 멍청해지는 것! 내가 원래 선언한 타입과 달라졌다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.43.38.png" alt="스크린샷 2023-01-19 오후 8.43.38.png" /></p>
+
+<p>내가 원래 선언한 타입으로 잘 나타나면 타입 추론이 잘 된 것</p>
+
+<aside>
+💡 tsc의 타입 추론을 최대한 믿어라
+
+   타입을 적을 때는 최대한 세부적으로 적어라
+</aside>
+
+<p>타입이 들어갈 자리 명시, 타입스크립트에서 타입을 뺀 코드도 javascript에서 돌아가야 한다.</p>
+
+<ul>
+  <li>: 뒷부분, as 뒷부분, &lt;&gt; 부분, interface, type, function 일부를 제외하면 자바스크립트와 동일. 제외하고 생각하는 연습을 초반에 해야 함.</li>
+  <li>타입, 인터페이스, 제네릭은 자바스크립트로 변환되면 사라진다. 따라서 얘네들이 없어도 잘 돌아가야 한다.</li>
+  <li>꼭 타입 부분을 구분하고 어디가 없어지는지 구분해야 한다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">obj</span><span class="p">:</span> <span class="p">{</span> <span class="nl">lat</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">lon</span><span class="p">:</span> <span class="kr">number</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="na">lat</span><span class="p">:</span> <span class="mf">37.5</span><span class="p">,</span> <span class="na">lon</span><span class="p">:</span> <span class="mf">127.5</span> <span class="p">};</span>
+<span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">lat</span><span class="p">:</span> <span class="mf">37.5</span><span class="p">,</span> <span class="na">lon</span><span class="p">:</span> <span class="mf">127.5</span> <span class="p">};</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">)</span> <span class="k">as</span> <span class="nx">HTMLDivElement</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#root</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">add</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">T</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span> <span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">A</span> <span class="p">{};</span>
+<span class="kd">type</span> <span class="nx">A</span> <span class="o">=</span> <span class="p">{};</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">add3</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span><span class="kr">number</span><span class="p">)</span> <span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">add3</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위에는 타입만 있고 아래는 선언만 있는 케이스가 존재할 수 있다.</p>
+
+<p>위 코드는 아래의 js로 변환된다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">function</span><span class="err"> </span><span class="nx">add3</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="err"> </span><span class="nx">y</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="k">return</span><span class="err"> </span><span class="nx">x</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 8.54.34.png" alt="스크린샷 2023-01-19 오후 8.54.34.png" /></p>
+
+<p>javascript로 변환될 때 어떤 부분이 사라지는지 보자!</p>
+
+<p>as 키워드도 사라짐</p>
+
+<p>as : 앞에 타입을 다른 타입으로 강제함</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">aa</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="nx">aa</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span> <span class="k">as</span> <span class="nx">unknown</span> <span class="k">as</span> <span class="nx">number</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="dl">"</span><span class="s2">use strict</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span><span class="err"> </span><span class="nx">aa</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="mi">123</span><span class="p">;</span>
+<span class="nx">aa</span><span class="err"> </span><span class="o">=</span><span class="err"> </span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>자바스크립트에 비해서 자유도가 확 줄어듦(ex: 변수에 문자열을 넣었다가 숫자로 바꾸는 등의 행동 어려워짐)</li>
+  <li>사실상..실무에서는 아래와 같은것을 할 일이 크게 없다..</li>
+  <li>생각해보면 당연히 안 할 일이므로 ts에서도 하지 않는다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>any를 최대한 쓰지 않는 것을 목표로 할 것.</li>
+  <li>never, unknown, any 타입 주의하기. any는 최대한 피하고 쓰더라도 나중에 꼭 제대로 타이핑하기.
+<a href="https://ui.toast.com/weekly-pick/ko_20220323">never 좋은 설명 글</a></li>
+  <li>never에서는 일반적인 타입이 올 수 없다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//ts : 빈배열에 주의하자</span>
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// noImplicitAny가 false일 때</span>
+<span class="c1">//const array: string = []; //이렇게 타입을 선언해줘야 한다.</span>
+  <span class="nx">array</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">error</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>강의에서는 array에 never 타입이 온다고 했는데, tsc 버전이 업데이트되었는지 아래와 같은 에러 메시지가 뜬다.</p>
+
+<ul>
+  <li>Variable ‘array’ implicitly has type ‘any[]’ in some locations where its type cannot be determined.</li>
+  <li>
+    <p>Variable ‘array’ implicitly has an ‘any[]’ type.</p>
+  </li>
+  <li>최대한 ! 대신 if를 쓸 것</li>
+  <li>!는 보장하기가 어렵다</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>타입스크립트에서 or는</td>
+          <td> </td>
+          <td>(두개)가 아니라</td>
+          <td>(한개)다</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">head</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#head</span><span class="dl">'</span><span class="p">)</span><span class="o">!</span><span class="p">;</span> <span class="c1">//얘가 무조건 존재한다고 보장. null이나 undefined가 아님을 보장하는 것</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span> <span class="c1">//head가 null이면 뻑남</span>
+
+<span class="c1">//head가 없어도 false가 되니까 안정성이 생김</span>
+<span class="kd">const</span> <span class="nx">head</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#head</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">head</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>head는 html 태그에 해당</li>
+  <li>head.innerHTML 가능 → 타입 정의가 이미 되어 있음</li>
+</ul>
+
+<p><img src="/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 9.12.34.png" alt="스크린샷 2023-01-19 오후 9.12.34.png" /></p>
+
+<p>head는 Element가 될 수도 있고 null이 될 수도 있다</p>
+
+<p>→ ts는 여러 가능성을 고려해둔다.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>!가 들어가면</td>
+      <td>null이 빠진다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/assets/img/posts/2023-01-19-TIL/스크린샷 2023-01-19 오후 9.14.30.png" alt="스크린샷 2023-01-19 오후 9.14.30.png" /></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2023-01-19T21:19:00+09:00">January 19, 2023</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Today+I+Learned_230119%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230119%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230119%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230119%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/TIL_230116/" class="pagination--pager" title="Today I Learned_230116
+">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230116/" rel="permalink">Today I Learned_230116
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221226/" rel="permalink">Today I Learned_221226
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221219/" rel="permalink">Today I Learned_221219
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_221117/" rel="permalink">Today I Learned_221117
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">HTTP
+인프런 HTTP 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Teirdarn Linkaden. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

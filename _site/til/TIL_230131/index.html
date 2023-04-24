@@ -1,0 +1,812 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Today I Learned_230131 - 테르의 개발 일기장</title>
+<meta name="description" content="string과 String은 다름. 소문자로 하는 것 기억하기.">
+
+
+  <meta name="author" content="HeeJung Kang">
+  
+  <meta property="article:author" content="HeeJung Kang">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="테르의 개발 일기장">
+<meta property="og:title" content="Today I Learned_230131">
+<meta property="og:url" content="http://localhost:4000/til/TIL_230131/">
+
+
+  <meta property="og:description" content="string과 String은 다름. 소문자로 하는 것 기억하기.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-01-31T21:11:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/TIL_230131/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Teirdarn Linkaden",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="테르의 개발 일기장 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          테르의 개발 일기장
+          <span class="site-subtitle">Junior Web Developer</span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/img/profile.png" alt="HeeJung Kang" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">HeeJung Kang</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>하루하루 조금씩 열심히.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:tentasys@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:tentasys@gmail.com">
+            <meta itemprop="email" content="tentasys@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Today I Learned_230131">
+    <meta itemprop="description" content="  string과 String은 다름. 소문자로 하는 것 기억하기.">
+    <meta itemprop="datePublished" content="2023-01-31T21:11:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Today I Learned_230131
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <ul>
+  <li>string과 String은 다름. 소문자로 하는 것 기억하기.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">a</span><span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">b</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hell</span><span class="dl">'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>대문자로 하면 지옥이 펼쳐진다..</p>
+
+<p>String과 string은 다르다. String은 래퍼 객체에 해당.
+<img src="https://user-images.githubusercontent.com/13197487/215757400-1cb9224f-e83b-449b-ab8c-47be73eb8426.png" alt="스크린샷 2023-01-31 오후 8.29.04.png" /></p>
+
+<p>String은 new String();에서만 사용</p>
+
+<p>대문자 쓰지 말자.</p>
+
+<ul>
+  <li>템플릿 리터럴 타입이 존재(유니언 등 사용 가능)</li>
+  <li>type키워드를 통해 타입을 커스텀하게 만들 수 있다.</li>
+  <li>const에서도 백틱을 쓸 수 있지만 type에서도 백틱을 쓸 수 있다.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">type</span> <span class="nx">World</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">world</span><span class="dl">"</span> <span class="o">|</span> <span class="dl">"</span><span class="s2">hell</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">// type Greeting = "hello world"</span>
+<span class="kd">type</span> <span class="nx">Greeting</span> <span class="o">=</span> <span class="s2">`hello </span><span class="p">${</span><span class="nx">World</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>또는을 사용하면 타입 추천을 정교하게 만들 수 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/13197487/215757529-4215664e-6f0f-48d2-844f-ebb1e61a7a60.png" alt="스크린샷 2023-01-31 오후 8.36.27.png" /></p>
+
+<ul>
+  <li>
+    <p>hello world, hello hell 둘 중 하나만 선택할 수 있다.</p>
+  </li>
+  <li>
+    <p>배열, 튜플 문법</p>
+  </li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arr</span><span class="p">:</span> <span class="kr">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">let</span> <span class="nx">arr2</span><span class="p">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">function</span> <span class="nx">rest</span><span class="p">(...</span><span class="nx">args</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="p">{}</span> <span class="c1">//function rest(...args) {} 와 같이 줄일 수 있음</span>
+
+<span class="kd">const</span> <span class="nx">tuple</span><span class="p">:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="kr">number</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
+<span class="nx">tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">;</span> <span class="c1">//에러남. 2자리밖에 없는데 세번째 자리에 넣으니까 에러</span>
+<span class="nx">tuple</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">);</span> <span class="c1">//근데 타입스크립트는 바보라서 얘는 된다.</span>
+<span class="c1">// 둘 다 세번째에 요소를 추가하는 요소이다</span>
+</code></pre></div></div>
+
+<ul>
+  <li>rest parameter : <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters</a>
+    <ul>
+      <li>모든 매개변수를 받는다.</li>
+    </ul>
+  </li>
+  <li>타입이 헷갈릴 때는 잠시 자바스크립트로 돌아가서 정신을 차리자.</li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//rest pamareter</span>
+<span class="kd">function</span> <span class="nx">rest</span><span class="p">(...</span><span class="nx">args</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">);</span> <span class="c1">//[1, 2, 3]</span>
+<span class="p">}</span>
+<span class="nx">rest</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">rest</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="p">{</span> <span class="c1">//여기서 a는 any타입</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">);</span> <span class="c1">//1, [2, 3]</span>
+<span class="p">}</span>
+<span class="nx">rest</span><span class="p">(</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>enum, keyof, typeof</li>
+  <li>enum은 변수들을 하나의 그룹으로 묶고싶을 때 사용
+    <ul>
+      <li>enum : javascript로 변환 시 남아있지 않는다.</li>
+      <li>스크린샷 2023-01-31 오후 8.52.52.png<img width="768" alt="image" src="https://user-images.githubusercontent.com/13197487/215758249-b4d2d69c-94bd-4652-bf00-6d601787e28f.png" /></li>
+      <li>객체 : javascript로 변환 시 남아있는다.</li>
+      <li><img width="686" alt="image" src="https://user-images.githubusercontent.com/13197487/215757933-02237b4f-dfa6-47ec-9ed7-303f46986529.png" /></li>
+      <li>남겨야 할지 안 남겨야 할지 모르겠다면 일단 객체로 만들어서 남기자.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="kr">enum</span> <span class="nx">EDirection</span> <span class="p">{</span>
+  <span class="nx">Up</span><span class="p">,</span>     <span class="c1">//0</span>
+  <span class="nx">Down</span><span class="p">,</span>   <span class="c1">//1</span>
+  <span class="nx">Left</span><span class="p">,</span>   <span class="c1">//2</span>
+  <span class="nx">Right</span><span class="p">,</span>  <span class="c1">//3</span>
+<span class="p">}</span>
+<span class="c1">//첫 값을 지정할 수 있음. Up을 3으로 지정해주면 3, 4, 5, 6이 된다.</span>
+<span class="c1">//3, 5, 4, 6과 같이 불규칙적으로도 할 수 있다.</span>
+<span class="c1">//enum은 문자열도 가능</span>
+<span class="kd">const</span> <span class="kr">enum</span> <span class="nx">EDirection</span> <span class="p">{</span>
+    <span class="nx">Up</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">123</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">Down</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">Left</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">wow</span><span class="dl">'</span><span class="p">,</span>
+    <span class="nx">Right</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">enum</span><span class="dl">'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">//enum이 아닌 객체를 사용</span>
+<span class="kd">const</span> <span class="nx">ODirection</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">Up</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="na">Down</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">Left</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="na">Right</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">}</span> <span class="k">as</span> <span class="kd">const</span><span class="p">;</span>
+
+<span class="nx">EDirection</span><span class="p">.</span><span class="nx">Up</span><span class="p">;</span>
+           
+<span class="p">(</span><span class="kr">enum</span> <span class="nx">member</span><span class="p">)</span> <span class="nx">EDirection</span><span class="p">.</span><span class="nx">Up</span> <span class="o">=</span> <span class="mi">0</span>
+ 
+<span class="nx">ODirection</span><span class="p">.</span><span class="nx">Up</span><span class="p">;</span>
+           
+<span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="nx">Up</span><span class="p">:</span> <span class="mi">0</span>
+ 
+<span class="c1">// enum은 직접 타입으로 쓸 수 있음. dir은 4개중에 하나여야 한다.</span>
+<span class="kd">function</span> <span class="nx">walk</span><span class="p">(</span><span class="nx">dir</span><span class="p">:</span> <span class="nx">EDirection</span><span class="p">)</span> <span class="p">{}</span>
+ 
+<span class="c1">// enum 쓰기 싫을 땐 아래처럼 쓰면 된다.</span>
+<span class="kd">type</span> <span class="nx">Direction</span> <span class="o">=</span> <span class="k">typeof</span> <span class="nx">ODirection</span><span class="p">[</span><span class="kr">keyof</span> <span class="k">typeof</span> <span class="nx">ODirection</span><span class="p">];</span>
+<span class="kd">function</span> <span class="nx">run</span><span class="p">(</span><span class="nx">dir</span><span class="p">:</span> <span class="nx">Direction</span><span class="p">)</span> <span class="p">{}</span>
+
+<span class="c1">//4개 중 하나의 방향을 입력</span>
+<span class="nx">walk</span><span class="p">(</span><span class="nx">EDirection</span><span class="p">.</span><span class="nx">Left</span><span class="p">);</span>
+<span class="nx">run</span><span class="p">(</span><span class="nx">ODirection</span><span class="p">.</span><span class="nx">Right</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>as const
+    <ul>
+      <li>
+        <p>있을 때 : 정확하게 타입 추론</p>
+
+        <p><img src="https://user-images.githubusercontent.com/13197487/215758669-73f01940-3f26-44c3-b0bb-4d3de14e20b4.png" alt="스크린샷 2023-01-31 오후 8.55.39.png" /></p>
+      </li>
+      <li>
+        <p>없을 때 : 정확하게 타입 추론을 하지 않음</p>
+
+        <p><img src="https://user-images.githubusercontent.com/13197487/215758072-08dfed36-6b9e-4d57-90fc-a2f637464b70.png" alt="스크린샷 2023-01-31 오후 8.55.21.png" /></p>
+      </li>
+      <li>
+        <p>타입스크립트가 바보가 되면 우리가 나서야 함</p>
+        <ul>
+          <li>as const를 붙이거나 - 이 속성들을 전부 상수로 사용하겠다. 고정된 값으로 엄격한 타이핑 진행</li>
+          <li>뒤에 타입을 붙여줄 수 있음</li>
+        </ul>
+
+        <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">ODirection</span><span class="p">:</span> <span class="p">{</span><span class="nl">Up</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">Down</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="nx">Left</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="nx">Right</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">Up</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">Down</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="na">Left</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="na">Right</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="p">};</span>
+        
+  <span class="kd">const</span> <span class="nx">ODirection</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">Up</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">Down</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="na">Left</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="na">Right</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="p">}</span> <span class="k">as</span> <span class="kd">const</span><span class="p">;</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>keyof, typeof</p>
+
+    <p><img src="https://user-images.githubusercontent.com/13197487/215758785-2d7d5f32-5bd4-481d-a976-cef6dbaa9e3d.png" alt="스크린샷 2023-01-31 오후 9.01.31.png" /></p>
+
+    <ul>
+      <li>obj의 a, b, c를 가져다 쓰고 싶음</li>
+      <li>그런데 쓸라고 하니까 obj는 값이 아닌 타입이라고 한다 → typeof 필요</li>
+    </ul>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span> <span class="dl">'</span><span class="s1">123</span><span class="dl">'</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="dl">'</span><span class="s1">hello</span><span class="dl">'</span><span class="p">,</span> <span class="na">c</span><span class="p">:</span><span class="dl">'</span><span class="s1">world</span><span class="dl">'</span><span class="p">};</span>
+  <span class="kd">type</span> <span class="nx">Key</span> <span class="o">=</span> <span class="kr">keyof</span> <span class="k">typeof</span> <span class="nx">obj</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>
+        <p>typeof : 값을 타입으로 사용하고 싶을 때</p>
+
+        <p><img src="https://user-images.githubusercontent.com/13197487/215758866-459d6da6-7886-40fc-bf47-499bc14477c0.png" alt="스크린샷 2023-01-31 오후 9.03.06.png" /></p>
+      </li>
+      <li>
+        <p>여기서 <strong>키들만 뽑아내고 싶을 때</strong> keyof 사용</p>
+
+        <p><img src="https://user-images.githubusercontent.com/13197487/215759106-cc144740-6499-4677-afee-b91cd305b49f.png" alt="스크린샷 2023-01-31 오후 9.03.39.png" /></p>
+      </li>
+      <li>
+        <p>as const와 typeof를 활용하면 이렇게 사용할 수 있음 → <strong>값들만 뽑아내고 싶을 때</strong> enum처럼 사용할 수 있다.</p>
+
+        <p><img src="https://user-images.githubusercontent.com/13197487/215759202-c48bf754-70c2-46c3-bee9-c8c202cfbc43.png" alt="스크린샷 2023-01-31 오후 9.06.39.png" /></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2023-01-31T21:11:00+09:00">January 31, 2023</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Today+I+Learned_230131%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230131%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230131%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230131%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/TIL_230119/" class="pagination--pager" title="Today I Learned_230119
+">이전</a>
+    
+    
+      <a href="/til/TIL_230202/" class="pagination--pager" title="Today I Learned_230202
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230423/" rel="permalink">Today I Learned_230423
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          11 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">토비의 스프링 3.1
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230422/" rel="permalink">Today I Learned_230422
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230420/" rel="permalink">Today I Learned_230420
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230418/" rel="permalink">Today I Learned_230418
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Teirdarn Linkaden. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

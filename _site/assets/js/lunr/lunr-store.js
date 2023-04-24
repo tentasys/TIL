@@ -1,28 +1,4 @@
 var store = [{
-        "title": "BOJ 1000. A+B",
-        "excerpt":"문제 링크 : https://www.acmicpc.net/problem/1000   특이한 점   System.in.read() 사용   ascii code의 문자값으로 저장되므로 -‘0’을 해서 처리가 가능했다.  ","categories": ["알고리즘"],
-        "tags": [],
-        "url": "http://localhost:4000/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Algorithm_00/",
-        "teaser": null
-      },{
-        "title": "Java 빌드 경로 에러",
-        "excerpt":"Eclipse 상에서 다음과 같은 메시지가 나타났을 때, 오류 처리 방법 -The project cannot be built until build path errors are resolved Java SE 9 환경에서 작성한 코드를 Java SE 8 환경에서 열어보려고 하니, build path가 달라 빌드를 진행하지 못하는 문제가 발생하였다. 프로젝트 우클릭 &gt; build path &gt; configure build path...","categories": ["Java"],
-        "tags": [],
-        "url": "http://localhost:4000/java/Java_00/",
-        "teaser": null
-      },{
-        "title": "Github Pages 삽질기_01",
-        "excerpt":"clone한 jekyll 프로젝트를 github에 push하여 페이지가 올라가는 것 까지는 확인했으나, jekyll serve를 이용한 로컬에서의 확인이 되지 않아 삽질을 하였다. 우선 jekyll 공식 홈페이지 MacOS install 가이드를 따라했다. 루비 버전을 체크했는데 2020년 버전이 아니라 2019년 버전에서 쎄함을 느낌… 뭔가 안 맞을 때는 재설치가 특효약인 경우가 많으므로 우선 재설치를 진행하였다. 다시 설치했는데도...","categories": ["Github","Pages"],
-        "tags": [],
-        "url": "http://localhost:4000/github/pages/Github_Page_00/",
-        "teaser": null
-      },{
-        "title": "BOJ 4949. 균형잡힌 세상",
-        "excerpt":"1. 문제 4949번: 균형잡힌 세상 소괄호 또는 대괄호의 짝을 찾아주는 문제. 2. 개념 및 기술 주요 개념 Stack 자료구조의 일종으로, Last In First Out의 성질을 띄고 있는 자료구조이다. 기타 요소 StringBuilder https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html System.out.println을 통해 계속해서 출력하게 되면 성능 저하가 있을 수 있으므로, StringBuilder를 이용하여 한번에 출력하도록 하였다. String.toCharArray(); https://docs.oracle.com/javase/7/docs/api/java/lang/String.html 문자열을...","categories": ["알고리즘"],
-        "tags": [],
-        "url": "http://localhost:4000/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/Algorithm_00/",
-        "teaser": null
-      },{
         "title": "Today I Learned_220131",
         "excerpt":"Spring  인프런 자바 강의   UTF-8 필터 처리, @Service, @Repository, @Controller   Controller 객체 구현 - @RequestMapping을 이용한 url mapping. @RequestMapping 사용 방법   Request Parameter를 얻는 세 가지 방법           HttpServletRequest객체를 이용            @RequestParam annotaion 이용            커맨드 객체 이용       이클립스에서 다른 브라우저 띄우기   TIL 작성  https://doing7.tistory.com/4   Jekyll 디렉토리 구조  https://jekyllrb-ko.github.io/docs/structure/  ","categories": ["TIL"],
         "tags": [],
@@ -327,5 +303,143 @@ var store = [{
         "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 타입 추론 IDE는 tsc -noemit을 계속 돌리고 있음 타입을 추론해주는 역할을 계속한다 IDE에 손을 올렸을때 타입을 제대로 추론한다 → 제대로 쓴 것 특수한 타입 {} (null과 undefined가 아닌 모든 타입) const z: {} = 5; ts가 추론해주는 타입이 있는데 이런 건 그냥 그대로 사용하면 됨....","categories": ["TIL"],
         "tags": [],
         "url": "http://localhost:4000/til/TIL_230119/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230131",
+        "excerpt":"string과 String은 다름. 소문자로 하는 것 기억하기. const a: string = 'hello'; const b: String = 'hell'; 대문자로 하면 지옥이 펼쳐진다.. String과 string은 다르다. String은 래퍼 객체에 해당. String은 new String();에서만 사용 대문자 쓰지 말자. 템플릿 리터럴 타입이 존재(유니언 등 사용 가능) type키워드를 통해 타입을 커스텀하게 만들 수 있다. const에서도...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230131/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230202",
+        "excerpt":"객체 타이핑: type과 interface 구분하기 타입 alias : type 둘 중에 뭐가 나은지? 간단하게 하고 싶으면 type interface: 상속하고 구현하는 등 자바의 객체지향에서 나오는 개념들이 포함됨. 객체지향 프로그래밍을 하고싶다면 사용하자. type A = { a: string }; // A라는 타입을 선언했다. 객체를 타입으로 정의 const a: A = { a:...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230202/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230206",
+        "excerpt":"토비의 스프링 3.1 서론 스프링이란 무엇인가? 자바 엔터프라이즈 애플리케이션 개발에 사용되는 애플리케이션 프레임워크 스프링을 사용한다는 것은 아래의 세 가지 요소를 사용하여 애플리케이션을 개발 스프링 컨테이너 애플리케이션의 기본 틀. 애플리케이션 컨텍스트라고도 한다. 스프링 런타임 엔진 스프링 컨테이너 : 애플리케이션을 구성하는 오브젝트를 생성하고 관리 핵심 프로그래밍 모델 지원 IoC/DI : 오브젝트의 생명주기와...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230206/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230207",
+        "excerpt":"&amp;를 쓰면 타입 상속과 같이 쓸 수 있다. ‘그리고’라는 개념보다는 상속이라고 받아들여보자. //이렇게 하면 셋 다 만족시킬 수 있음 -&gt; 어떻게 보면 상속에 해당 //타입 확장의 개념으로 쓸 수 있다. type Animal = {breath: true}; type Mammal = Animal &amp; {breed: true}; type Human = Mammal &amp; {think: true}; const...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230207/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230220",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 // A가 더 넓은 타입에 해당 type A = string | number; //string 또는 number type B = string; type C = string &amp; number; // 이거는 불가능(never 타입으로 나온다) A가 B보다 더 넓은 범위 (A &gt; B &gt; C 순) any는 전체집합, never는 공집합으로...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230220/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230221",
+        "excerpt":"토비의 스프링 3.1 DB에 접근하는 DAO JDBC를 이용해 작업하는 순서 DB Connection 가져옴 SQL 담은 statement 생성 후 실행 실행 결과를 ResultSet으로 받아 정보를 저장 작업중에 생성된 자원 반환 예외 처리 public class UserDao { public void add(User user) throws ClassNotFoundException, SQLException { //예외는 메소드 밖으로 던지기 Class.forName(\"drive name\"); Connection...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230221/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230223",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 interface A { talk: () =&gt; void; } const a : A = { talk() {return 3;} } const b = a.talk(); //이 경우 b의 타입은 3이 아니라 void가 된다. //void면 원칙적으로 리턴값이 없어야 하는 것이 맞다. const c = a.talk() as number; //강제로 바꿔줘야...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230223/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230227",
+        "excerpt":"토비의 스프링 3.1 DAO의 확장 관심사에 따라 분리한 오브젝트들은 각기 독특한 변화의 특징이 있음 변화의 성격이 다르다는 것은 변화의 이유, 시기, 주기가 다르다는 것 변화의 성격이 다른 것을 분리해서, 서로 영향을 주지 않은 채로 각각 필요한 시점에 독립적으로 변경할 수 있도록 해야 함 클래스의 분리 관심사가 다른 것들을 독립적인 클래스로...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230227/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230309",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 readonly : 실수로 바꾸는 것을 막아줌 (자바스크립트에서는 바꿀 수 있음) interface A { readonly a: string; b: string; } const aaaa : A = {a:'hello', b:'world'} aaaa.a = '123'; //여기서 이걸 바꿔줌 인덱스드 시그니처 //이렇게 쓰면 너무 길다.. type A1 = {a: string, b:string, c:string,...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230309/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230314",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 filter 분석 같은 함수가 여러가지 방법으로 선언되는 경우에는 여러 타입으로 선언되는 경우가 있음 → filter는 unknown을 받고있어서 타입 추론을 제대로 못 하는 경우도 있다. 제네릭의 경우 한 칸 씩 진짜 타입으로 채워가면서 분석해 나가자 interface Array&lt;T&gt;{ filter&lt;S extends T&gt;(predicate: (value: T, index: number, array: T[])...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230314/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230316",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 함수에서 공변성과 반공변성 주의! → 함수간에 서로 대입할 수 있는지 없는지 이변성, 불변성 등등이 있음.. 리턴값은 더 넓은 타입으로 대입할 수 있다. number 리턴값은 number 또는 string 리턴 타입에 대입 가능하다. 리턴값 넓은타입에서 좁은타입으로는 대입할 수 없다. 매개변수는 넓은 타입에서 좁은 타입으로 대입할 수 있다....","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230316/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230320",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 타입스크립트 시작하기 타입스크립트는 ts 확장자를 가진다. 타입스크립트가 브라우저가 인식할 수 있는 형태로 컴파일하는 과정이 필요함. 타입스크립트 설치법 npm install typescript -g 타입스크립트 컴파일 tsc index.ts 웹팩 - 모듈 번들러 반복적인 명령어를 자동화할 수 있다. 타입스크립트 쓰려면 웹팩을 써야 함 설정파일 만들기 ts가 포함된 디렉토리 이동...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230320/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230325",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 섹션 5. 인터페이스 인터페이스는 반복되는 타입에 대해 정의한 것 항상 이 규칙으로 쓰겠다고 약속. 상호간의 약속 // 함수에 인터페이스 활용 function getUser(user: User) { console.log(user); } // 규칙에 맞다면 이렇게 넣을 수도 있다. const capt = { name: 'captin', age: 100 } getUser(capt); // 함수의...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230325/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230402",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 섹션 6. 타입 별칭 인터페이스 정의 방식 interface Person { name: string; age: number; } 타입 별칭 정의 방식 type Person = { name: string; age: number; } 사용 방법 var seho: Person = { name: 'seho', age: 30 } 타입 별칭의 특징 : 인터페이스와는...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230402/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230403",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 섹션 8. 이넘 이넘 : 특정 값들의 집합을 의미하는 자료형. 집합의 데이터 타입 드랍다운, 정해진 값의 목록을 지정할 때 이넘을 사용. 숫자형 이넘 enum Shoes { Nike, // 0 Adidas, // 1 Vans // 2 } var myShoes = Shoes.Nike; console.log(myShoes); // 0 출력 enum...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230403/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230407",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 섹션 11. 두 번째 프로젝트 - 전화번호부 애플리케이션 타입을 강력하게 강제하려면 tsconfig에 아래 세 가지 옵션 추가 \"noImplicitAny\": true, \"strict\": true, \"strictFunctionTypes\": true 어떤 키가 들어오던 간에 그 값은 num : 숫자가 와야 한다. interface PhoneNumberDictionary { [phone: string]: { num: number; }; } 제네릭...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230407/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230410",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 섹션 12. 타입 추론 타입스크립트가 해당 타입을 어떻게 추론하는지 알아야 한다. 변수 선언 ,초기화 할 때 추론됨. 변수, 속성, 인자의 기본 값, 함수의 반환 값 등을 설정할 때 타입 추론이 일어난다. var a = 'abc' // es6 이상에서는 파라미터에 default value를 지정할 수 있다. function...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230410/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230411",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 섹션 15. 타입 호환 타입스크립트가 코드를 해석해 나가면서 두 개의 타입이 서로 호환이 되는지를 점검하는 것 타입 자체를 보기 보다는, 타입이 가지고 있는 속성들을 비교하고 이들이 호환이 되는지를 본다. 구조적 타이핑(structural typing) → 구조 관점에서 타입이 서로 호환되는지 인터페이스에서의 타입 호환 interface Developer { name:...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230411/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230417",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 utility types로 알아보기 링크 utility type을 왜 써야 하는가? 아래와 같은 상황일 때… interface Profile { name: string, age: number, married: boolean, } const heejung: Profile = { name: 'heejung', age: 29, married: false, } married만 빼서 쓰자니 아래와 같이 애매해진다.. // 이거는 불가능 const...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230417/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230418",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 Omit 여러 속성 중 하나를 없애기 Partial보단 Pick, Omit 사용하자 Pick과 Exclude로 이루어짐 // K는 키값들만 와야 함 type Omit&lt;T, K extends keyof any&gt; = Pick&lt;T, Exclude&lt;keyof T, K&gt;&gt;; const newheejung2: Omit&lt;Profile, 'married'&gt; = { name: 'heejung', age: 29, } keyof any가 무슨 뜻일까? →...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230418/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230420",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 Parameters type Parameters&lt;T extends (...args: any) =&gt; any&gt; = T extends (...args: infer P) =&gt; any ? P : never; &lt;T extends (…args: any) =&gt; any&gt; : T는 무조건 함수여야 한다. infer 타입스크립트가 알아서 추론하는 것 extends에서만 사용 가능 추론 조건 ? 추론 성공 시의...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230420/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230422",
+        "excerpt":"TypeScript 인프런 타입스크립트 강의 수강 flat 배열의 한 차원을 낮춰 주는 메소드 bind와 유사하게 파라미터의 한계가 있다. const a = [1, 2, 3, [1, 2], [[1], [2]]].flat(); // [1, 2, 3, 1, 2, [1], [2]] const a1 = [1, 2, 3, [1, 2], [[1], [2]]].flat(2); // [1, 2, 3, 1,...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230422/",
+        "teaser": null
+      },{
+        "title": "Today I Learned_230423",
+        "excerpt":"토비의 스프링 3.1 DAO 개선에 적용된 원칙과 패턴 개방 폐쇄 원칙 Open-Closed Principle 확장에는 열려 있고, 변경에는 닫혀있다. 깔끔한 설계를 위한 객체지향 설계 원칙 중 하나 객체지향 설계 원칙(SOLID) 객체지향의 특징을 잘 살릴 수 있는 설계의 특징 원칙이라는 건 어떤 상황에서든 100% 지켜져야 하는 절대적인 기준이라기보다는, 예외는 있겠지만 대부분의 상황에...","categories": ["TIL"],
+        "tags": [],
+        "url": "http://localhost:4000/til/TIL_230423/",
         "teaser": null
       }]

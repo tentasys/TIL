@@ -1,0 +1,877 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.21.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Today I Learned_230314 - 테르의 개발 일기장</title>
+<meta name="description" content="TypeScript 인프런 타입스크립트 강의 수강">
+
+
+  <meta name="author" content="HeeJung Kang">
+  
+  <meta property="article:author" content="HeeJung Kang">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="테르의 개발 일기장">
+<meta property="og:title" content="Today I Learned_230314">
+<meta property="og:url" content="http://localhost:4000/til/TIL_230314/">
+
+
+  <meta property="og:description" content="TypeScript 인프런 타입스크립트 강의 수강">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-03-14T22:54:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/til/TIL_230314/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Teirdarn Linkaden",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="테르의 개발 일기장 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          테르의 개발 일기장
+          <span class="site-subtitle">Junior Web Developer</span>
+        </a>
+        <ul class="visible-links"></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/img/profile.png" alt="HeeJung Kang" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">HeeJung Kang</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>하루하루 조금씩 열심히.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">팔로우</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:tentasys@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:tentasys@gmail.com">
+            <meta itemprop="email" content="tentasys@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">이메일</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Today I Learned_230314">
+    <meta itemprop="description" content="TypeScript인프런 타입스크립트 강의 수강">
+    <meta itemprop="datePublished" content="2023-03-14T22:54:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Today I Learned_230314
+</h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="typescript">TypeScript</h1>
+<p><a href="https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%98%AC%EC%9D%B8%EC%9B%90-1/dashboard">인프런 타입스크립트 강의 수강</a></p>
+
+<h2 id="filter-분석">filter 분석</h2>
+
+<p>같은 함수가 여러가지 방법으로 선언되는 경우에는 여러 타입으로 선언되는 경우가 있음</p>
+
+<p>→ filter는 unknown을 받고있어서 타입 추론을 제대로 못 하는 경우도 있다.</p>
+
+<p>제네릭의 경우 한 칸 씩 진짜 타입으로 채워가면서 분석해 나가자</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">{</span>
+    <span class="nx">filter</span><span class="o">&lt;</span><span class="nx">S</span> <span class="kd">extends</span> <span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="na">predicate</span><span class="p">:</span> <span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="na">index</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">value</span> <span class="k">is</span> <span class="nx">S</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="kr">any</span><span class="p">):</span> <span class="nx">S</span><span class="p">[];</span>
+    <span class="nx">filter</span><span class="p">(</span><span class="na">predicate</span><span class="p">:</span> <span class="p">(</span><span class="na">value</span><span class="p">:</span> <span class="nx">T</span><span class="p">,</span> <span class="na">index</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="na">array</span><span class="p">:</span> <span class="nx">T</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">unknown</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="kr">any</span><span class="p">):</span> <span class="nx">T</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="c1">// value는 Number</span>
+<span class="c1">// number를 2로 나눈 나머지 - number이므로 S는 number라고 추론 가능</span>
+<span class="kd">const</span> <span class="nx">filtered</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">].</span><span class="nx">filter</span><span class="p">((</span><span class="nx">vaule</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">vaule</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>타입 채워나가면 아래와 같다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">filter</span><span class="o">&lt;</span><span class="kr">number</span> <span class="kd">extends</span> <span class="kr">number</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">predicate</span><span class="p">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="kr">number</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="nx">value</span> <span class="k">is</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="kr">any</span><span class="p">):</span> <span class="kr">number</span><span class="p">[];</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// filter(predicate: (value: string | number, index: number, array: string | number[]) =&gt; unknown, thisArg?: any): string | number[];</span>
+<span class="c1">// 결과가 string | number[] 니까 string | number로 나오게 되는 상황. </span>
+<span class="kd">const</span> <span class="nx">filtered1</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">].</span><span class="nx">filter</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">)</span><span class="c1">// ['1','3', '5'] string[]</span>
+
+<span class="c1">// string extends string | number</span>
+<span class="nx">constpredicate</span><span class="o">=</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">string</span><span class="o">|</span><span class="kr">number</span><span class="p">):</span> <span class="nx">value</span> <span class="k">is</span> <span class="kr">string</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span>
+<span class="kd">const</span> <span class="nx">filtered2</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="dl">'</span><span class="s1">5</span><span class="dl">'</span><span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="nx">predicate</span><span class="p">);</span>
+
+<span class="c1">// 아래꺼는 에러가 난다.</span>
+<span class="c1">// &lt;string extends string | number&gt; -&gt; 직접 기입. T는 정해져 있기 때문에 extends를 붙지 않아도 된다.</span>
+<span class="c1">// 커스텀 타입 가드가 아니기 때문에 되지 않음</span>
+<span class="c1">// const result = ['1', 2].filter&lt;string extends string | number&gt;((value) =&gt; typeof value === 'string');</span>
+<span class="c1">//(value) =&gt; typeof value === 'string' 이게 형식 조건자에 맞지 않는 상황.</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="mi">2</span><span class="p">].</span><span class="nx">filter</span><span class="p">((</span><span class="nx">value</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>결과는 string[]이어야 하는데 filtered1는 string|number가 된다
+    <ul>
+      <li>추론을 잘못한 것. 추론을 잘 하도록 해야한다.</li>
+      <li>string[]으로 나오게 하려면 이에 맞게 바꾸어 줘야 한다.</li>
+    </ul>
+  </li>
+  <li>predicate를 별도로 빼자. 이 순간 S는 string이라고 알려준다.</li>
+</ul>
+
+<h2 id="foreach-타입-만들기">forEach 타입 만들기</h2>
+
+<p>타입을 제대로 만들 줄도 알아야 함.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>위 형태를 바탕으로 forEach 함수 구현</p>
+
+<p>인터페이스 선언 → 함수 선언 → callback 추가</p>
+
+<p>에러 찾아가는 방법 : 마지막 줄 부터 보고 천천히 위로 올라가면서 찾아나가자.</p>
+
+<p><img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3efc1833-b4a2-4713-988b-518359926542/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230314%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20230314T135457Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=5a6e01a0f4a32ca8d2512874167179994c24d5584b26b4e073fb690b4efb1cdd&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=filename%3D%22Untitled.png%22&amp;x-id=GetObject" alt="Untitled" /></p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span> <span class="p">{</span>
+    <span class="nx">forEach</span> <span class="p">(</span><span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">item</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="p">:</span> <span class="k">void</span><span class="p">;</span>  <span class="c1">// 모든 타입을 커버할 수 없음</span>
+<span class="p">}</span>
+
+<span class="c1">// --------여기는 가능</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+
+<span class="c1">// --------여기는 불가능</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="p">:</span> <span class="nx">Arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">]</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">b</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span> <span class="p">{</span>
+    <span class="nx">forEach</span> <span class="p">(</span><span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">item</span><span class="p">:</span> <span class="kr">string</span> <span class="o">|</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="p">:</span> <span class="k">void</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//가능해야 하는데 현재 구조로는 불가</span>
+<span class="p">});</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+
+<span class="kd">const</span> <span class="nx">b</span> <span class="p">:</span> <span class="nx">Arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">]</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">//가능해야 하는데 현재 구조로는 불가</span>
+<span class="p">});</span>
+
+<span class="nx">b</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>일단 에러가 나오지 않으면 성공한것. 근데 복잡하게 만들다 보면 나중에 가서야 잘못된 것을 발견하게 되는 경우도 있음..</p>
+
+<p>또는 관계로 표현이 되지 않음 → 제네릭 사용</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span> <span class="p">{</span>
+    <span class="nx">forEach</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">(</span><span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">item</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="p">:</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이러면 제네릭 자리를 추론을 하지 못해 아래와 같이 명시해주어야 함</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>아래와 같이 수정 진행</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">forEach</span> <span class="p">(</span><span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="na">item</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="p">:</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+
+<span class="kd">const</span> <span class="nx">b</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">]</span>
+<span class="nx">b</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="nx">item</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">b</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+    <span class="k">return</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>원본 forEach</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">forEach</span><span class="p">(</span><span class="nx">callbackfn</span><span class="p">:</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">index</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">array</span><span class="p">:</span> <span class="nb">Int8Array</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">,</span> <span class="nx">thisArg</span><span class="p">?:</span> <span class="kr">any</span><span class="p">):</span> <span class="k">void</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>구현부에서는 index를 사용하고 있지 않으므로 생략.</p>
+
+<p>실제 구현 코드 발전도에 따라 타입을 발전해 나가자. 처음부터 모든 것을 예상하려 하지 말자.</p>
+
+<h2 id="map-타입-만들기">map 타입 만들기</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">map</span> <span class="p">(</span><span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="na">v</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">T</span><span class="p">)</span> <span class="p">:</span> <span class="nx">T</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// [2, 3, 4]</span>
+</code></pre></div></div>
+
+<p>그런데 위와 같이 하면 아래 경우가 안 된다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// ['2', '3', '4']</span>
+</code></pre></div></div>
+
+<p>v.toString에서 TS2322: Type ‘string’ is not assignable to type ‘number’. 발생</p>
+
+<p>또한 리턴값이 string[]이 되어야 하는데 c의 타입을 보면 number[]로 되어 있음</p>
+
+<p>새로운 제네릭 문자를 추가하면 된다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">map</span><span class="o">&lt;</span><span class="nx">S</span><span class="o">&gt;</span> <span class="p">(</span><span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="na">v</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">S</span><span class="p">)</span> <span class="p">:</span> <span class="nx">S</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// [2, 3, 4]</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span> <span class="c1">// ['2', '3', '4'], string[]</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span> <span class="c1">//[false, true, false], boolean[]</span>
+
+<span class="kd">const</span> <span class="nx">e</span><span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">1</span><span class="dl">'</span> <span class="p">,</span><span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">3</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="o">+</span><span class="nx">v</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="filter-타입-만들기">filter 타입 만들기</h2>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">filter</span> <span class="p">(</span><span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="na">v</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="k">is</span> <span class="nx">T</span><span class="p">)</span> <span class="p">:</span> <span class="nx">T</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">:</span> <span class="nx">v</span> <span class="k">is</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// [2], number[]</span>
+
+<span class="kd">const</span> <span class="nx">c</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">124</span><span class="p">;</span> <span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">:</span> <span class="nx">v</span> <span class="k">is</span> <span class="kr">string</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">v</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// ['2', '4'], string[]</span>
+</code></pre></div></div>
+
+<p>커스텀 타입 가드를 사용해도 d는 여전히 number|string형식</p>
+
+<p>T타입이 S타입으로 변화하려면 extends를 써서 확장 (부분집합 관계이므로)</p>
+
+<p>커스텀 타입 가드(형식 조건자)는 넓은 타입을 좁은 타입으로 좁혀주는 역할을 한다.</p>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">filter</span><span class="o">&lt;</span><span class="nx">S</span> <span class="kd">extends</span> <span class="nx">T</span><span class="o">&gt;</span> <span class="p">(</span><span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="na">v</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="k">is</span> <span class="nx">S</span><span class="p">)</span> <span class="p">:</span> <span class="nx">S</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">:</span> <span class="nx">v</span> <span class="k">is</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// [2], number[]</span>
+
+<span class="kd">const</span> <span class="nx">c</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">124</span><span class="p">;</span> <span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">:</span> <span class="nx">v</span> <span class="k">is</span> <span class="kr">string</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">v</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// ['2', '4'], string[]</span>
+</code></pre></div></div>
+
+<div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">interface</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="nx">filter</span><span class="o">&lt;</span><span class="nx">S</span> <span class="kd">extends</span> <span class="nx">T</span><span class="o">&gt;</span> <span class="p">(</span><span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="na">v</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="k">is</span> <span class="nx">S</span><span class="p">)</span> <span class="p">:</span> <span class="nx">S</span><span class="p">[];</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">:</span> <span class="nx">v</span> <span class="k">is</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="nx">v</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// [2], number[]</span>
+
+<span class="kd">const</span> <span class="nx">c</span> <span class="p">:</span> <span class="nx">Arr</span><span class="o">&lt;</span><span class="kr">number</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">124</span><span class="p">;</span> <span class="kr">string</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="dl">'</span><span class="s1">2</span><span class="dl">'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="dl">'</span><span class="s1">4</span><span class="dl">'</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="kd">const</span> <span class="nx">d</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">v</span><span class="p">)</span> <span class="p">:</span> <span class="nx">v</span> <span class="k">is</span> <span class="kr">string</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">v</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">string</span><span class="dl">'</span><span class="p">);</span> <span class="c1">// ['2', '4'], string[]</span>
+
+<span class="c1">//가독성을 높이려면 바깥으로 뺌.</span>
+<span class="c1">//그런데 타입스크립트는 인라인으로 쓰나 바깥으로 쓰나 가독성이 안 좋긴 하다..</span>
+<span class="kd">const</span> <span class="nx">predicate</span> <span class="o">=</span> <span class="p">(</span><span class="nx">v</span> <span class="p">:</span> <span class="kr">string</span> <span class="o">&amp;</span><span class="err">#</span><span class="mi">124</span><span class="p">;</span> <span class="kr">number</span><span class="p">)</span> <span class="p">:</span> <span class="nx">v</span> <span class="k">is</span> <span class="kr">number</span> <span class="o">=&gt;</span> <span class="k">typeof</span> <span class="nx">v</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">number</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">e</span> <span class="o">=</span> <span class="nx">c</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">predicate</span><span class="p">);</span> <span class="c1">// [1, 3, 5] number[];</span>
+</code></pre></div></div>
+
+<p>lib.es5.d.ts를 안 보고 만들어내는 연습을 할 수 있으면 좋다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#til" class="page__taxonomy-item" rel="tag">TIL</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time datetime="2023-03-14T22:54:00+09:00">March 14, 2023</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Today+I+Learned_230314%20http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230314%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230314%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Ftil%2FTIL_230314%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/til/TIL_230309/" class="pagination--pager" title="Today I Learned_230309
+">이전</a>
+    
+    
+      <a href="/til/TIL_230316/" class="pagination--pager" title="Today I Learned_230316
+">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">참고</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230423/" rel="permalink">Today I Learned_230423
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          11 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">토비의 스프링 3.1
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230422/" rel="permalink">Today I Learned_230422
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230420/" rel="permalink">Today I Learned_230420
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/til/TIL_230418/" rel="permalink">Today I Learned_230418
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 분 소요
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">TypeScript
+인프런 타입스크립트 강의 수강
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/tell_ringfit" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/tentasys" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2023 Teirdarn Linkaden. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
